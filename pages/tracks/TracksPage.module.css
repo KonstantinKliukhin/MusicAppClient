@@ -1,0 +1,7 @@
+.trackPageHeader {
+  @apply flex flex-row justify-between p-5 items-center;
+
+  .title {
+    @apply text-2xl mb-0;
+  }
+}

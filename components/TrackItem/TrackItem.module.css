@@ -1,0 +1,23 @@
+.trackCard {
+  &.trackCardDark {
+    @apply bg-purple-900;
+  }
+  .trackCardBody {
+    @apply flex-row gap-3 items-center p-2;
+
+    .trackImage {
+      @apply m-0;
+      img {
+        @apply object-cover;
+      }
+    }
+
+    .trackName {
+      @apply cursor-pointer hover:underline;
+    }
+  }
+
+  .deleteButton {
+    @apply ml-auto;
+  }
+}

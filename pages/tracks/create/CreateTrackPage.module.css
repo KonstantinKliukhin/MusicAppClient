@@ -1,0 +1,11 @@
+.card {
+  @apply mt-12 mb-6;
+  .cardBody {
+    .nameInputWrapper {
+      @apply mt-6 mb-5;
+    }
+    .textInputWrapper {
+      @apply mt-8 mb-5;
+    }
+  }
+}

@@ -1,6 +1,6 @@
-export enum PostRequestLoadingType {
-    IDLE='IDLE',
-    LOADING='LOADING',
-    SUCCESS='SUCCESS',
-    ERROR='ERROR',
+export enum RequestLoadingStateType {
+  IDLE = 'IDLE',
+  LOADING = 'LOADING',
+  SUCCESS = 'SUCCESS',
+  ERROR = 'ERROR',
 }

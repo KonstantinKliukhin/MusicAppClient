@@ -1,0 +1,7 @@
+.root {
+  @apply fixed h-24 bottom-2 flex justify-center w-full;
+  .player {
+    @apply flex items-center pl-1 pr-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl;
+    width: 80%;
+  }
+}

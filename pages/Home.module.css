@@ -1,12 +1,11 @@
 .wrapper {
-    @apply flex justify-center items-center;
+  @apply flex flex-col justify-center items-center;
 
-    .title {
-        @apply text-8xl;
-    }
+  .title {
+    @apply text-8xl;
+  }
 
-    .underTitleText {
-        @apply text-2xl;
-    }
+  .underTitleText {
+    @apply text-2xl;
+  }
 }
-

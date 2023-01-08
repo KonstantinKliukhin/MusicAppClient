@@ -1,12 +1,13 @@
-import React from 'react';
-import DefaultLayout from "../../layout/DefaultLayout";
+import React from 'react'
+import DefaultLayout from '../../../layout/DefaultLayout'
+import CreateTrackSteps from '../../../components/CreateTrackSteps'
 
-const Create = () => {
-    return (
-        <DefaultLayout>
-            Track List
-        </DefaultLayout>
-    );
-};
+const CreateTrackPage = () => {
+  return (
+    <DefaultLayout>
+      <CreateTrackSteps />
+    </DefaultLayout>
+  )
+}
 
-export default Create;
+export default CreateTrackPage
