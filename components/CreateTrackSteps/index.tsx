@@ -5,11 +5,11 @@ import ThirdStep from './ThirdStep'
 import StepWrapper from '../StepWrapper'
 import { Button, Container, useTheme } from '@nextui-org/react'
 import useInput from '../../hooks/useInput'
-import useActions from '../../hooks/useActions'
+import reduxHooks from '../../hooks/reduxHooks'
 import useAppSelector from '../../hooks/useAppSelector'
 import { RequestLoadingStateType } from '../../store/types/requestLoadingStateType'
 import { useRouter } from 'next/navigation'
-import { ICreateTrackDto } from '../../types/dto/createTrack'
+import { ICreateTrackDto } from '../../types/entities/track/dto/createTrack'
 
 interface ICreateTrackStepsProps {}
 
@@ -22,7 +22,7 @@ const CreateTrackSteps: FC<ICreateTrackStepsProps> = () => {
   const textInputProps = useInput('')
   const { isDark } = useTheme()
   const createTrackLoadingState = useAppSelector((state) => state.tracks.createTrackLoading)
-  const { createTrack, refreshCreateTrackLoadingState, fetchTracks } = useActions()
+  const { createTrack, refreshCreateTrackLoadingState, fetchTracks } = reduxHooks()
   const router = useRouter()
   useEffect(() => {
     if (createTrackLoadingState === RequestLoadingStateType.SUCCESS) {

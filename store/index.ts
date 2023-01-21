@@ -1,13 +1,14 @@
-import { Context, createWrapper } from 'next-redux-wrapper'
-import { applyMiddleware, compose, createStore, Store } from 'redux'
-import { reducer, RootState } from './reducers'
-import thunk from 'redux-thunk'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import rootReducer from "./reducers";
+import { configureStore } from "@reduxjs/toolkit";
+import { trackApiMiddleware } from "./apiSlices/tracksSlice";
 
-// create a makeStore function
-const makeStore = (context: Context) =>
-  createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
+export const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(trackApiMiddleware),
+  devTools: true
+});
 
-export type AppStore = ReturnType<typeof makeStore>
-// export an assembled wrapper
-export const wrapper = createWrapper<Store<RootState>>(makeStore, { debug: true })
+export type RootState = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch

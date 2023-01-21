@@ -1,53 +1,54 @@
-import { Avatar, Dropdown, Link, Navbar, Text, useTheme } from '@nextui-org/react'
-import { useMemo } from 'react'
-import { useRouter } from 'next/router'
-import DarkModeIcon from '@mui/icons-material/DarkMode'
-import LightModeIcon from '@mui/icons-material/LightMode'
-import { useTheme as useNextTheme } from 'next-themes'
+"use client";
+import { Link, Navbar, Text, useTheme } from "@nextui-org/react";
+import { useMemo } from "react";
+import { usePathname } from "next/navigation";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { useTheme as useNextTheme } from "next-themes";
 
 const menuItems = [
   {
-    href: '/',
-    text: 'Main page',
+    href: "/",
+    text: "Main page"
   },
   {
-    href: '/tracks',
-    text: 'Track List',
+    href: "/tracks",
+    text: "Track List"
   },
   {
-    href: '/albums',
-    text: 'Albums List',
-  },
-]
+    href: "/albums",
+    text: "Albums List"
+  }
+];
 
 export default function NavBar() {
-  const router = useRouter()
+  const pathname = usePathname();
   const activeIndex = useMemo(
-    () => menuItems.findIndex(({ href }) => href === router.route),
-    [router.route],
-  )
+    () => menuItems.findIndex(({ href }) => href === pathname),
+    [pathname]
+  );
 
-  const { setTheme } = useNextTheme()
-  const { isDark } = useTheme()
+  const { setTheme } = useNextTheme();
+  const { isDark } = useTheme();
   return (
-    <Navbar isBordered variant='sticky'>
-      <Navbar.Toggle showIn='xs' />
+    <Navbar isBordered variant="sticky">
+      <Navbar.Toggle showIn="xs" />
       <Navbar.Brand
         css={{
-          '@xs': {
-            w: '12%',
-          },
+          "@xs": {
+            w: "12%"
+          }
         }}
       >
-        <Text b color='inherit' hideIn='xs'>
+        <Text b color="inherit" hideIn="xs">
           Spotify
         </Text>
       </Navbar.Brand>
       <Navbar.Content
         enableCursorHighlight
-        activeColor='secondary'
-        hideIn='xs'
-        variant='highlight-rounded'
+        activeColor="secondary"
+        hideIn="xs"
+        variant="highlight-rounded"
       >
         {menuItems.map(({ text, href }, index) => (
           <Navbar.Link isActive={index === activeIndex} key={href} href={href}>
@@ -108,27 +109,27 @@ export default function NavBar() {
       {/*</Navbar.Content>*/}
       <Navbar.Content
         css={{
-          '@xs': {
-            w: '12%',
-            jc: 'flex-end',
-          },
+          "@xs": {
+            w: "12%",
+            jc: "flex-end"
+          }
         }}
       >
-        <div className={'ml-3'}>
+        <div className={"ml-3"}>
           {isDark ? (
-            <DarkModeIcon className={'cursor-pointer'} onClick={() => setTheme('light')} />
+            <DarkModeIcon className={"cursor-pointer"} onClick={() => setTheme("light")} />
           ) : (
-            <LightModeIcon className={'cursor-pointer'} onClick={() => setTheme('dark')} />
+            <LightModeIcon className={"cursor-pointer"} onClick={() => setTheme("dark")} />
           )}
         </div>
       </Navbar.Content>
       <Navbar.Collapse>
         {menuItems.map(({ href, text }, index) => (
-          <Navbar.CollapseItem key={href} activeColor='secondary' isActive={index === activeIndex}>
+          <Navbar.CollapseItem key={href} activeColor="secondary" isActive={index === activeIndex}>
             <Link
-              color='inherit'
+              color="inherit"
               css={{
-                minWidth: '100%',
+                minWidth: "100%"
               }}
               href={href}
             >
@@ -138,5 +139,5 @@ export default function NavBar() {
         ))}
       </Navbar.Collapse>
     </Navbar>
-  )
+  );
 }

@@ -1,14 +1,15 @@
+'use client'
+
 import React, { ChangeEvent, FC, useEffect, useState } from 'react'
 import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material'
 import styles from './StaticBottomPlayer.module.css'
 import { IconButton } from '@mui/material'
 import { Col, Container, Row, Text } from '@nextui-org/react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import TrackProgress from '../TrackProgress'
-import useAppSelector from '../../hooks/useAppSelector'
-import useActions from '../../hooks/useActions'
-import { setCurrentTime, setDuration, setVolume } from '../../store/actions-creators/player'
-import { ITrack } from '../../types/track'
+import { useAppSelector } from '../../hooks/reduxHooks'
+import useActions from '../../hooks/reduxHooks'
+import { ITrack } from '../../types/entities/track/track'
 
 let audio: HTMLAudioElement | null = null
 

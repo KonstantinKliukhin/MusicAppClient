@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ChangeEvent, FC, useMemo } from 'react'
 import styles from './TrackProgress.module.css'
 import getTimeDueSeconds from '../../utils/getTimeDueSeconds'

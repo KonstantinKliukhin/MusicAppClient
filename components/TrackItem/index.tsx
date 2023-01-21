@@ -1,15 +1,16 @@
+'use client'
+
 import React, { FC, useEffect, useMemo } from 'react'
-import { ITrack } from '../../types/track'
+import { ITrack } from '../../types/entities/track/track'
 import { Card, Grid, Image, Text, useTheme } from '@nextui-org/react'
 import { IconButton } from '@mui/material'
 import { Delete, Pause, PlayArrow } from '@mui/icons-material'
 import styles from './TrackItem.module.css'
 import cs from 'classnames'
 import { useRouter } from 'next/navigation'
-import useActions from '../../hooks/useActions'
-import useAppSelector from '../../hooks/useAppSelector'
+import useActions, {useAppSelector} from '../../hooks/reduxHooks'
 import getTimeDueSeconds from '../../utils/getTimeDueSeconds'
-import { RequestLoadingStateType } from '../../store/types/requestLoadingStateType'
+import { useDeleteTrackMutation } from "../../store/apiSlices/tracksSlice";
 
 interface ITrackItemProps {
   track: ITrack
@@ -23,22 +24,13 @@ const TrackItem: FC<ITrackItemProps> = ({ track }) => {
     setActiveTrack,
     playTrack,
     pauseTrack,
-    deleteTrack,
-    refreshDeleteTrackLoadingState,
-    fetchTracks,
   } = useActions()
   const { pause, active, currentTime, duration } = useAppSelector((state) => state.player)
-  const deleteTrackLoading = useAppSelector((state) => state.tracks.deleteTrackLoading)
 
   const isCurrentVideo: boolean = useMemo(() => track._id === active?._id, [track._id, active?._id])
   const isActive: boolean = useMemo(() => isCurrentVideo && !pause, [isCurrentVideo, pause])
 
-  useEffect(() => {
-    if (deleteTrackLoading === RequestLoadingStateType.SUCCESS) {
-      refreshDeleteTrackLoadingState()
-      fetchTracks()
-    }
-  }, [deleteTrackLoading])
+  const [deleteTrack] = useDeleteTrackMutation();
 
   const togglePlay = (): void => {
     if (!isCurrentVideo) {

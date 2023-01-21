@@ -1,8 +1,4 @@
-export interface IComment {
-  _id: string
-  username: string
-  text: string
-}
+import { IComment } from "./comment";
 
 export interface ITrack {
   _id: string

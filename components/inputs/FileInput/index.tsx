@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ChangeEvent, FC, MouseEventHandler, useRef } from 'react'
 import styles from './FileInput.module.css'
 

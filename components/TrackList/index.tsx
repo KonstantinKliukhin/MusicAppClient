@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { ITrack } from '../../types/track'
+import { ITrack } from '../../types/entities/track/track'
 import { Grid } from '@nextui-org/react'
 import TrackItem from '../TrackItem'
 
