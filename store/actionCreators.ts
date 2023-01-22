@@ -1,7 +1,7 @@
-import { trackActions } from "./slices/playerSlice";
+import playerSlice from './slices/playerSlice';
 
 const actions = {
-  ...trackActions,
+  ...playerSlice.actions,
 }
 
 export default actions;

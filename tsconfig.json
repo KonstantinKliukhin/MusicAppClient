@@ -17,12 +17,22 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "allowJs": true,
+    "allowJs": false,
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@entities/*": ["types/entities/*"],
+      "@commonTypes/*": ["types/common/*"],
+      "@uiComponents/*": ["components/ui/*"],
+      "@bzComponents/*": ["components/business/*"],
+      "@services/*": ["services/*"],
+      "@hooks/*": ["hooks/*"],
+      "@images/*": ["assets/images/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -32,5 +42,5 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
 }

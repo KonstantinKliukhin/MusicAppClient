@@ -1,6 +1,6 @@
 import React, { FC, ReactElement, ReactNode } from 'react'
-import NavBar from '../../components/NavBar'
-import styles from './DefaultLayout.module.css'
+import NavBar from '../../components/business/NavBar'
+import styles from './DefaultLayout.module.scss'
 import StaticBottomPlayer from '../../components/staticBottomPlayer'
 
 interface IDefaultLayoutProps {
@@ -11,7 +11,7 @@ const DefaultLayout: FC<IDefaultLayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <div className={styles.container}>{children}</div>
+      <main className={styles.container}>{children}</main>
       <StaticBottomPlayer />
     </>
   )

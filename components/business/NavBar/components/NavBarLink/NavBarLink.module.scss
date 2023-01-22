@@ -1,0 +1,8 @@
+.link {
+  @apply text-black text-lg border-b-0 hover:border-b-black border-b-2;
+  @apply dark:text-white;
+
+  &.active {
+    @apply border-b-emerald-400;
+  }
+}

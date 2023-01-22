@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ITrack } from "../../../types/entities/track/track";
+import { ITrack } from "../../../types/entities/track/Track";
 import { PlayerState } from "./types";
 
 const initialState: PlayerState = {
@@ -30,7 +30,7 @@ const playerSlice = createSlice({
       state.currentTime = action.payload;
     },
     setActiveTrack: (state, action: PayloadAction<null | ITrack>) => {
-      if (action.payload?._id === state.active?._id) return;
+      if (action.payload?.id === state.active?.id) return;
       state.active = action.payload;
       state.duration = 0;
       state.currentTime = 0;
@@ -38,7 +38,5 @@ const playerSlice = createSlice({
   }
 });
 
-export const trackActions = playerSlice.actions;
-
-export default playerSlice.reducer;
+export default playerSlice;
 

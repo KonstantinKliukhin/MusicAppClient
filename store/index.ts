@@ -1,11 +1,12 @@
 import rootReducer from "./reducers";
 import { configureStore } from "@reduxjs/toolkit";
-import { trackApiMiddleware } from "./apiSlices/tracksSlice";
+// import { trackApiMiddleware } from "./apiSlices/tracksSlice";
 
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(trackApiMiddleware),
+    getDefaultMiddleware(),
+      // .concat(trackApiMiddleware),
   devTools: true
 });
 

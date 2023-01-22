@@ -1,12 +1,14 @@
-import {
-  buildCreateApi,
-  coreModule,
-  reactHooksModule,
-} from '@reduxjs/toolkit/query/react'
+// import {
+//   buildCreateApi,
+//   coreModule,
+//   reactHooksModule,
+// } from '@reduxjs/toolkit/query/react'
+//
+// const createApi = buildCreateApi(
+//   coreModule(),
+//   reactHooksModule({ unstable__sideEffectsInRender: true })
+// )
+//
+// export default createApi;
 
-const createApi = buildCreateApi(
-  coreModule(),
-  reactHooksModule({ unstable__sideEffectsInRender: true })
-)
-
-export default createApi;
+export default 'temporary deprecated'

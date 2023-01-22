@@ -9,7 +9,7 @@ import reduxHooks from '../../hooks/reduxHooks'
 import useAppSelector from '../../hooks/useAppSelector'
 import { RequestLoadingStateType } from '../../store/types/requestLoadingStateType'
 import { useRouter } from 'next/navigation'
-import { ICreateTrackDto } from '../../types/entities/track/dto/createTrack'
+import { ICreateTrackDto } from '../../types/entities/track/dto/CreateTrack.dto'
 
 interface ICreateTrackStepsProps {}
 

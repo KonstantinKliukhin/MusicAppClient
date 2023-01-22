@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 import TrackProgress from '../TrackProgress'
 import { useAppSelector } from '../../hooks/reduxHooks'
 import useActions from '../../hooks/reduxHooks'
-import { ITrack } from '../../types/entities/track/track'
+import { ITrack } from '../../types/entities/track/Track'
 
 let audio: HTMLAudioElement | null = null
 
@@ -17,7 +17,7 @@ const StaticBottomPlayer: FC = () => {
   const { pause, volume, active, duration, currentTime } = useAppSelector((state) => state.player)
   const { pauseTrack, playTrack, setVolume, setCurrentTime, setDuration } = useActions()
   const router = useRouter()
-  const [savedTrackId, setSavedTrackId] = useState<ITrack['_id'] | null>(null)
+  const [savedTrackId, setSavedTrackId] = useState<ITrack['id'] | null>(null)
 
   useEffect(() => {
     if (!audio) return

@@ -1,38 +1,21 @@
-import React, {use} from "react";
-import { ITrack } from "../../types/entities/track/track";
-import TrackList from "../../components/TrackList";
-import { inspect } from "util";
-import styles = module
-import { Button, Container } from "@nextui-org/react";
-import Link from "next/link";
+import React from 'react'
+import TrackList from '../../components/business/TrackList'
+import Link from 'next/link'
+import styles from './TracksPage.module.scss'
+import Container from '@uiComponents/Container'
+import trackService from '@services/trackService'
 
-const fetchTracks = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks`);
-
-  const parsedRes = response.json();
-  return parsedRes;
-};
-
-export default function TracksPage() {
-
-  // const { data: tracks, isLoading, isError } = useFetchTracksQuery(null);
-  //
-  // if (!tracks || isLoading) {
-  //   return (
-  //     <h1>Loading...</h1>
-  //   );
-  // }
-
-  const tracks = use<ITrack[]>(fetchTracks())
+export default async function TracksPage() {
+  const tracks = await trackService.getTracks();
 
   return (
     <Container>
       <div className={styles.trackPageHeader}>
         <h1 className={styles.title}>Track List</h1>
         <Link href={"/tracks/create"}>
-          <Button color={"gradient"}>
+          <button className={styles.createTrackButton}>
             Upload track
-          </Button>
+          </button>
         </Link>
       </div>
       <TrackList tracks={tracks} />

@@ -1,0 +1,12 @@
+.trackPageHeader {
+  @apply flex flex-row justify-between p-5 items-center bg-emerald-50 shadow-md w-full rounded-lg;
+  @apply dark:bg-fuchsia-700;
+
+  .title {
+    @apply text-2xl mb-0;
+  }
+
+  .createTrackButton {
+    @apply w-48 h-12 p-3 flex justify-center items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-600 rounded-2xl;
+  }
+}

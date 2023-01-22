@@ -1,12 +1,12 @@
-import { IComment } from "./comment";
+import {ITrackComment} from "./TrackComment";
 
 export interface ITrack {
-  _id: string
+  id: string
   name: string
   artist: string
   text: string
   listens: number
   picture: string
   audio: string
-  comments: IComment[]
+  comments: ITrackComment[]
 }

@@ -1,4 +1,4 @@
-import { ITrack } from "../../../types/entities/track/track";
+import { ITrack } from "../../../types/entities/track/Track";
 
 export interface PlayerState {
   active: null | ITrack
