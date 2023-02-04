@@ -1,7 +1,7 @@
 import React, { FC, ReactElement, ReactNode } from 'react'
 import NavBar from '../../components/business/NavBar'
 import styles from './DefaultLayout.module.scss'
-import StaticBottomPlayer from '../../components/staticBottomPlayer'
+import StaticBottomPlayer from '../../components/business/staticBottomPlayer'
 
 interface IDefaultLayoutProps {
   children: ReactNode | ReactElement

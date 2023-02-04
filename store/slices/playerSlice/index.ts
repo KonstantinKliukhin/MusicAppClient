@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ITrack } from "../../../types/entities/track/Track";
-import { PlayerState } from "./types";
+import { IPlayerState } from "./types";
 
-const initialState: PlayerState = {
+const initialState: IPlayerState = {
   currentTime: 0,
   duration: 0,
   active: null,

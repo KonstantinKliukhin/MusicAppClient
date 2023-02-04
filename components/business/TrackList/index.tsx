@@ -11,7 +11,7 @@ const TrackList: FC<ITrackListProps> = ({ tracks }) => {
   return (
     <div className={styles.root}>
       {tracks.map((track) => {
-        return <TrackItem key={track.id} track={track} active={false} />
+        return <TrackItem key={track.id} track={track} />
       })}
     </div>
   )

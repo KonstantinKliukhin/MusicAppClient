@@ -1,7 +1,0 @@
-.step {
-  &.darkStep {
-    circle {
-      @apply text-gray-600;
-    }
-  }
-}

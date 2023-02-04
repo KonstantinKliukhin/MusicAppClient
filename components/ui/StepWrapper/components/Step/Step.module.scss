@@ -1,0 +1,13 @@
+
+.root {
+  @apply flex justify-center items-center w-16 h-16 rounded-full bg-gray-300 shadow-md text-lg;
+
+  &.allowed {
+    @apply bg-emerald-700 cursor-pointer;
+  }
+
+  &.active {
+    @apply bg-fuchsia-400;
+    @apply dark:bg-emerald-400;
+  }
+}

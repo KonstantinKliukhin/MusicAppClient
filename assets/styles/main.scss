@@ -4,8 +4,15 @@
 
 body {
   font-size: 62.5%;
-  @apply bg-emerald-200 pb-20;
+  @apply bg-emerald-200 pb-20 overflow-x-hidden overflow-y-auto scroll-m-0;
   @apply dark:bg-zinc-900;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 * {
@@ -25,5 +32,5 @@ body {
 *::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0);
   border-radius: 20px;
-  border: 3px solid blue;
+  border: 3px solid lightgray;
 }

@@ -1,7 +1,7 @@
 
 
 .root {
-  @apply sticky w-full bg-zinc-100 h-20 px-10 py-4 flex justify-between items-center gap-x-20;
+  @apply fixed top-0 left-0 w-full bg-zinc-100 h-20 px-10 py-4 flex justify-between items-center gap-x-20;
   @apply dark:bg-fuchsia-800;
   z-index: 1000;
 

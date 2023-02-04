@@ -1,6 +1,6 @@
 import { ITrack } from "../../../types/entities/track/Track";
 
-export interface PlayerState {
+export interface IPlayerState {
   active: null | ITrack
   volume: number
   duration: number
