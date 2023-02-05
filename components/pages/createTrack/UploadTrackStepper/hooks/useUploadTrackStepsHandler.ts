@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useFormikContext } from 'formik';
-import { ICreateTrackFormik } from '../../../../providers/createTrackFormikProvider';
+import { ICreateTrackFormik } from '../../../../../providers/createTrackFormikProvider';
 import useActions, { useAppSelector } from '@hooks/reduxHooks';
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
-import uploadTrackSteps from '@bzComponents/UploadTrackStepper/constants/stepsConfig';
+import uploadTrackSteps from '../constants/stepsConfig';
 
 const useUploadTrackStepsHandler = (): void => {
   const { values, errors, dirty } = useFormikContext<ICreateTrackFormik>();
@@ -28,8 +28,6 @@ const useUploadTrackStepsHandler = (): void => {
     },
     [allowedSteps, route],
   );
-
-  console.log(validSteps, allowedSteps, errors, values, dirty);
 
   useEffect(
     function manageValidStepsDueFormik() {

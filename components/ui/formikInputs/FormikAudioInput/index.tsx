@@ -1,10 +1,10 @@
 'use client';
 
 import { FC, useCallback } from 'react';
-import FileInput from '@uiComponents/inputs/FileInput';
 import styles from './FormikAudioInput.module.scss';
 import { useField } from 'formik';
 import AddIcon from '@mui/icons-material/Add';
+import FileInput from '@utilsComponents/inputs/FileInput';
 
 type PropsType = {
   name: string;

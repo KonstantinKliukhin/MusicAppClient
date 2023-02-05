@@ -1,8 +1,8 @@
-import UploadTrackStepper from '@bzComponents/UploadTrackStepper';
 import { PropsWithChildren } from 'react';
 import Container from '@uiComponents/Containers/Container';
 import styles from './create.module.scss';
 import CreateTrackFormikProvider from '../../../providers/createTrackFormikProvider';
+import UploadTrackStepper from '@pageComponents/createTrack/UploadTrackStepper';
 
 type PropsType = PropsWithChildren;
 

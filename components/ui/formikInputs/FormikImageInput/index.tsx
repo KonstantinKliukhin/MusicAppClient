@@ -2,11 +2,11 @@
 
 import React, { FC, useCallback, useMemo } from 'react';
 import { useField } from 'formik';
-import FileInput from '@uiComponents/inputs/FileInput';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import styles from './FormikImageInput.module.scss';
 import Image from 'next/image';
 import * as process from 'process';
+import FileInput from '@utilsComponents/inputs/FileInput';
 
 type PropsType = {
   name: string;

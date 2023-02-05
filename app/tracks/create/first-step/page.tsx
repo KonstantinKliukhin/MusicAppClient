@@ -1,8 +1,8 @@
 import WhiteRoundedCard from '@uiComponents/cards/WhiteRoundedCard';
-import FormikTextInput from '@uiComponents/inputs/FormikTextInput';
-import FormikTexAreaInput from '@uiComponents/inputs/FormikTexAreaInput';
+import FormikTextInput from '@uiComponents/formikInputs/FormikTextInput';
+import FormikTexAreaInput from '@uiComponents/formikInputs/FormikTexAreaInput';
 import UploadTrackButtonsContainer from '@uiComponents/Containers/UploadTrackButtonsContainer';
-import UploadTrackMoveButton from '@bzComponents/buttons/UploadTrackMoveButton';
+import UploadTrackMoveButton from '@pageComponents/createTrack/UploadTrackMoveButton';
 
 export default function FirstStep() {
   return (

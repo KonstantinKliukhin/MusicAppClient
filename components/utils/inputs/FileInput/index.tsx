@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ChangeEvent, FC, ReactNode, useRef } from 'react';
+import React, { ChangeEvent, FC, ReactNode, useCallback, useRef } from 'react';
 import styles from './FileInput.module.scss';
 
 interface IFileInputProps {
@@ -18,10 +18,16 @@ const FileInput: FC<IFileInputProps> = (props) => {
     props.setFile(file);
   };
 
+  const onClick = useCallback(() => {
+    if (!inputRef.current) return;
+
+    inputRef.current.click();
+  }, [inputRef]);
+
   return (
-    <div className={styles.root} onClick={() => inputRef?.current?.click()}>
+    <div className={styles.root}>
       <input ref={inputRef} onChange={onChange} accept={props.accept} type={'file'} hidden />
-      {props.children(() => inputRef?.current?.click())}
+      {props.children(onClick)}
     </div>
   );
 };

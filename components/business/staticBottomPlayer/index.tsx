@@ -1,92 +1,91 @@
-'use client'
+'use client';
 
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
-import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material'
-import styles from './StaticBottomPlayer.module.css'
-import { IconButton } from '@mui/material'
-import { Col, Container, Row, Text } from '@nextui-org/react'
-import { useRouter } from 'next/navigation'
-import TrackProgress from '../TrackProgress'
-import { useAppSelector } from '@hooks/reduxHooks'
-import useActions from '@hooks/reduxHooks'
-import { ITrack } from '@entities/track/Track'
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material';
+import styles from './StaticBottomPlayer.module.scss';
+import { IconButton } from '@mui/material';
+import { Col, Container, Row, Text } from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
+import TrackProgress from '../TrackProgress';
+import useActions, { useAppSelector } from '@hooks/reduxHooks';
+import { ITrack } from '@entities/track/Track';
 
-let audio: HTMLAudioElement | null = null
+let audio: HTMLAudioElement | null = null;
 
 const StaticBottomPlayer: FC = () => {
-  const { pause, volume, active, duration, currentTime } = useAppSelector((state) => state.player)
-  const { pauseTrack, playTrack, setVolume, setCurrentTime, setDuration } = useActions()
-  const router = useRouter()
-  const [savedTrackId, setSavedTrackId] = useState<ITrack['id'] | null>(null)
+  const { pause, volume, active, duration, currentTime } = useAppSelector((state) => state.player);
+  const { pauseTrack, playTrack, setVolume, setCurrentTime, setDuration } = useActions();
+  const router = useRouter();
+  const [savedTrackId, setSavedTrackId] = useState<ITrack['id'] | null>(null);
 
   useEffect(() => {
-    if (!audio) return
-    pause ? audio.pause() : audio.play()
-  }, [pause])
+    if (!audio) return;
+    pause ? audio.pause() : audio.play();
+  }, [pause]);
 
   const playAudio = () => {
-    if (!audio) return
-    playTrack()
-    audio.play()
-    return
-  }
+    if (!audio) return;
+    playTrack();
+    audio.play();
+    return;
+  };
 
   const pauseAudio = () => {
-    if (!audio) return
-    pauseTrack()
-    audio.pause()
-  }
+    if (!audio) return;
+    pauseTrack();
+    audio.pause();
+  };
 
   const togglePlay = () => {
-    pause ? playAudio() : pauseAudio()
-  }
+    pause ? playAudio() : pauseAudio();
+  };
 
   const setupAudio = () => {
-    if (!active) return
-    audio = new Audio()
-    audio.src = active.audio
+    if (!active) return;
+    audio = new Audio();
+    audio.src = active.audio;
     audio.onloadedmetadata = () => {
-      if (!audio) return
-      setDuration(audio.duration)
-      pause ? pauseAudio() : playAudio()
-    }
+      if (!audio) return;
+      setDuration(audio.duration);
+      pause ? pauseAudio() : playAudio();
+    };
     audio.ontimeupdate = () => {
-      if (!audio) return
-      setCurrentTime(audio.currentTime)
-    }
-    audio.volume = volume / 100
-  }
+      if (!audio) return;
+      setCurrentTime(audio.currentTime);
+    };
+    audio.volume = volume / 100;
+  };
 
   useEffect(() => {
-    if (!active) return
+    if (!active) return;
     if (savedTrackId !== active.id) {
-      pauseAudio()
-      audio = null
-      setSavedTrackId(active.id)
-      setupAudio()
-      return
+      pauseAudio();
+      audio = null;
+      setSavedTrackId(active.id);
+      setupAudio();
+      return;
     }
 
     if (!audio) {
-      setupAudio()
-      return
+      setupAudio();
+      return;
     }
 
-    audio.volume = volume / 100
-  }, [volume, currentTime, active])
+    audio.volume = volume / 100;
+  }, [volume, currentTime, active]);
 
   const changeVolume = (e: ChangeEvent<HTMLInputElement>) => {
-    setVolume(Number(e.target.value))
-  }
+    setVolume(Number(e.target.value));
+  };
 
   const changeCurrentTime = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!audio) return
-    const newTime = Number(e.target.value)
-    audio.currentTime = newTime
-    setCurrentTime(newTime)
-  }
+    if (!audio) return;
+    const newTime = Number(e.target.value);
+    audio.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
 
-  if (!active) return null
+  if (!active) return null;
   return (
     <div className={styles.root}>
       <Container className={styles.player}>
@@ -122,7 +121,7 @@ const StaticBottomPlayer: FC = () => {
         </Row>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default StaticBottomPlayer
+export default StaticBottomPlayer;

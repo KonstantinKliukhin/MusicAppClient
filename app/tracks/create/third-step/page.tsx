@@ -1,7 +1,7 @@
 import WhiteRoundedCard from '@uiComponents/cards/WhiteRoundedCard';
-import FormikAudioInput from '@uiComponents/inputs/FormikAudioInput';
+import FormikAudioInput from '@uiComponents/formikInputs/FormikAudioInput';
 import UploadTrackButtonsContainer from '@uiComponents/Containers/UploadTrackButtonsContainer';
-import UploadTrackMoveButton from '@bzComponents/buttons/UploadTrackMoveButton';
+import UploadTrackMoveButton from '@pageComponents/createTrack/UploadTrackMoveButton';
 
 export default function ThirdStep() {
   return (

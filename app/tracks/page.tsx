@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackList from '../../components/business/TrackList';
+import TrackList from '../../components/pages/tracks/TrackList';
 import Link from 'next/link';
 import styles from './TracksPage.module.scss';
 import Container from '@uiComponents/Containers/Container';

@@ -29,6 +29,8 @@
       "@commonTypes/*": ["types/common/*"],
       "@uiComponents/*": ["components/ui/*"],
       "@bzComponents/*": ["components/business/*"],
+      "@pageComponents/*": ["components/pages/*"],
+      "@utilsComponents/*": ["components/utils/*"],
       "@services/*": ["services/*"],
       "@hooks/*": ["hooks/*"],
       "@images/*": ["assets/images/*"]

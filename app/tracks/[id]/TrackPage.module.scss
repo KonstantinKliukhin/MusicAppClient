@@ -1,11 +1,4 @@
-.addCommentCard {
-  @apply mb-5 mt-5;
 
-  .nameInputContainer {
-    @apply mt-3 mb-8;
-  }
-
-  .commentInputContainer {
-    @apply mt-5;
-  }
+.root {
+  @apply flex flex-col gap-y-6;
 }
