@@ -1,12 +1,12 @@
 import WhiteRoundedCard from '@uiComponents/cards/WhiteRoundedCard';
 import UploadTrackButtonsContainer from '@uiComponents/Containers/UploadTrackButtonsContainer';
-import FormikImageInput from '@uiComponents/formikInputs/FormikImageInput';
 import UploadTrackMoveButton from '@pageComponents/createTrack/UploadTrackMoveButton';
+import { FormikImageInput } from '@uiComponents/inputs/ImageInput';
 
 export default function SecondStep() {
   return (
     <>
-      <WhiteRoundedCard title={'Track image'}>
+      <WhiteRoundedCard title={'track image'}>
         <FormikImageInput name={'picture'} />
       </WhiteRoundedCard>
       <UploadTrackButtonsContainer>

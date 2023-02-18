@@ -1,13 +1,13 @@
 import WhiteRoundedCard from '@uiComponents/cards/WhiteRoundedCard';
-import FormikTextInput from '@uiComponents/formikInputs/FormikTextInput';
-import FormikTexAreaInput from '@uiComponents/formikInputs/FormikTexAreaInput';
 import UploadTrackButtonsContainer from '@uiComponents/Containers/UploadTrackButtonsContainer';
 import UploadTrackMoveButton from '@pageComponents/createTrack/UploadTrackMoveButton';
+import { FormikTextInput } from '@uiComponents/inputs/TextInput';
+import { FormikTextAreaInput } from '@uiComponents/inputs/TextAreaInput';
 
 export default function FirstStep() {
   return (
     <>
-      <WhiteRoundedCard title={'Track name'}>
+      <WhiteRoundedCard title={'track name'}>
         <FormikTextInput name={'name'} />
       </WhiteRoundedCard>
 
@@ -15,8 +15,8 @@ export default function FirstStep() {
         <FormikTextInput name={'artist'} />
       </WhiteRoundedCard>
 
-      <WhiteRoundedCard title={'Track text'}>
-        <FormikTexAreaInput name={'text'} />
+      <WhiteRoundedCard title={'track text'}>
+        <FormikTextAreaInput name={'text'} />
       </WhiteRoundedCard>
       <UploadTrackButtonsContainer>
         <UploadTrackMoveButton step={0} type={'next'} link={'/tracks/create/second-step'}>

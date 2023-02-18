@@ -1,14 +1,17 @@
-import {ITrack} from '@entities/track/Track';
-import TrackAdapter from "../../types/entities/track/adapters/TrackAdapter";
-import {IGetTrackDTO} from '@entities/track/dto/GetTrack.dto';
-import axios from "axios";
-import TrackCommentAdapter from '../../types/entities/track/adapters/TrackCommentAdapter'
-import UrlParser from '../../utils/UrlParser'
+import { ITrack } from '@entities/track/Track';
+import TrackAdapter from '../../types/entities/track/adapters/TrackAdapter';
+import TrackCommentAdapter from '../../types/entities/track/adapters/TrackCommentAdapter';
+import UrlParser from '../../utils/UrlParser';
+import { IGetTrackDTO } from '@entities/track/dto/GetTrack.dto';
 
 const getOneTrack = async (id: ITrack['id']): Promise<ITrack> => {
-    const response = await axios.get<IGetTrackDTO>(`${process.env.NEXT_PUBLIC_API_PATH}/tracks/${id}`);
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks/${id}`, {
+    cache: 'no-store',
+  });
 
-    return new TrackAdapter(response.data, TrackCommentAdapter, UrlParser);
-}
+  const dto: IGetTrackDTO = await response.json();
+
+  return new TrackAdapter(dto, TrackCommentAdapter, UrlParser);
+};
 
 export default getOneTrack;

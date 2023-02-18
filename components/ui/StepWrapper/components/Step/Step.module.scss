@@ -4,10 +4,10 @@
 
   &.allowed {
     @apply bg-emerald-700 cursor-pointer;
-  }
 
-  &.active {
-    @apply bg-fuchsia-400;
-    @apply dark:bg-emerald-400;
+    &.active {
+      @apply bg-fuchsia-400;
+      @apply dark:bg-emerald-400;
+    }
   }
 }

@@ -1,8 +1,8 @@
-import styles from './NavBar.module.scss'
-import Image from 'next/image'
-import Logo from '@images/logo/spotify.svg'
-import NavBarLink from './components/NavBarLink'
-import ThemePicker from './components/ThemePicker'
+import styles from './NavBar.module.scss';
+import Image from 'next/image';
+import Logo from '@images/logo/spotify.svg';
+import NavBarLink from './components/NavBarLink';
+import ThemePicker from './components/ThemePicker';
 
 const menuItems = [
   {
@@ -11,13 +11,13 @@ const menuItems = [
   },
   {
     href: '/tracks',
-    text: 'Track List',
+    text: 'track List',
   },
   {
     href: '/albums',
     text: 'Albums List',
   },
-]
+];
 
 export default function NavBar() {
   return (
@@ -30,10 +30,9 @@ export default function NavBar() {
       </ul>
       <div className={styles.buttonsContainer}>
         <button>
-          <ThemePicker/>
+          <ThemePicker />
         </button>
       </div>
-
     </nav>
-  )
+  );
 }

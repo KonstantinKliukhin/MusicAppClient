@@ -1,6 +1,6 @@
 // import createApi from "../createApi";
 // import { fetchBaseQuery } from "@reduxjs/toolkit/query";
-// import { ITrack } from "../../../types/entities/track/Track";
+// import { ITrack } from "../../../types/entities/track/track";
 // import { ICreateTrackDto } from "../../../types/entities/track/dto/CreateTrack.dto";
 // import { ITrackComment } from "../../../types/entities/track/TrackComment";
 // import { ICreateCommentDto } from "../../../types/entities/track/dto/CreateComment.dto";
@@ -70,5 +70,4 @@
 //
 // export default tracksReducer;
 
-export default 'temporary deprecated'
-
+export default 'temporary deprecated';

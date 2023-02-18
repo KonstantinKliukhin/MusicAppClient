@@ -1,0 +1,11 @@
+.root {
+  @apply flex flex-col gap-y-4;
+
+  .commentatorName {
+    @apply text-lg
+  }
+
+  .comment {
+    @apply text-lg
+  }
+}

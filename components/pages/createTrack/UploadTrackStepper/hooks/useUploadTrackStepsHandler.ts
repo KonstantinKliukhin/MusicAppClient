@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useFormikContext } from 'formik';
-import { ICreateTrackFormik } from '../../../../../providers/createTrackFormikProvider';
+import { ICreateTrackFormik } from '../../../../../providers/CreateTrackFormikProvider';
 import useActions, { useAppSelector } from '@hooks/reduxHooks';
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
 import uploadTrackSteps from '../constants/stepsConfig';
@@ -10,7 +10,7 @@ const useUploadTrackStepsHandler = (): void => {
   const route = useSelectedLayoutSegment();
   const validSteps = useAppSelector((state) => state.uploadTrackSteps.validSteps);
   const allowedSteps = useAppSelector((state) => state.uploadTrackSteps.allowedSteps);
-  const { addValidStep, deleteValidStep } = useActions();
+  const { addValidStep, deleteValidStep, changeUploadTrackStep } = useActions();
   const router = useRouter();
 
   useEffect(
@@ -28,6 +28,14 @@ const useUploadTrackStepsHandler = (): void => {
     },
     [allowedSteps, route],
   );
+
+  useEffect(() => {
+    if (!route) return;
+    const newCurrentStep = uploadTrackSteps.findIndex((step) => step.link.includes(route));
+    if (newCurrentStep === -1) return;
+
+    changeUploadTrackStep(newCurrentStep);
+  }, [route]);
 
   useEffect(
     function manageValidStepsDueFormik() {

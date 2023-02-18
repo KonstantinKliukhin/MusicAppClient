@@ -11,8 +11,6 @@ interface IStepWrapperProps {
   allowedSteps: number[];
 }
 
-const steps = ['Track info', 'Upload thumbnail', 'Upload track'];
-
 const StepWrapper: FC<IStepWrapperProps> = (props) => {
   return (
     <div className={styles.root}>
