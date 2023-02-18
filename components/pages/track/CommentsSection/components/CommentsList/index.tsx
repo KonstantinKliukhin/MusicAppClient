@@ -9,11 +9,11 @@ type PropsType = {
 
 const CommentsList: FC<PropsType> = (props) => {
   return (
-    <ul className={styles.root}>
+    <div className={styles.root}>
       {props.comments.map((comment) => (
         <CommentItem key={comment.id} {...comment} />
       ))}
-    </ul>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@
   @apply grid grid-cols-[auto_1fr] gap-x-4;
 
   .img {
-    @apply object-contain
+    @apply object-contain rounded-md;
   }
 
   .textsWrapper {

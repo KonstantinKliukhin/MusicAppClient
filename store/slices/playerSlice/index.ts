@@ -1,17 +1,17 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ITrack } from "../../../types/entities/track/Track";
-import { IPlayerState } from "./types";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ITrack } from '../../../types/entities/track/Track';
+import { IPlayerState } from './types';
 
 const initialState: IPlayerState = {
   currentTime: 0,
   duration: 0,
   active: null,
   volume: 80,
-  pause: true
+  pause: true,
 };
 
 const playerSlice = createSlice({
-  name: "player",
+  name: 'player',
   initialState: initialState,
   reducers: {
     pauseTrack: (state) => {
@@ -32,11 +32,10 @@ const playerSlice = createSlice({
     setActiveTrack: (state, action: PayloadAction<null | ITrack>) => {
       if (action.payload?.id === state.active?.id) return;
       state.active = action.payload;
-      state.duration = 0;
+      state.duration = 1;
       state.currentTime = 0;
-    }
-  }
+    },
+  },
 });
 
 export default playerSlice;
-

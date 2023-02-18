@@ -4,13 +4,13 @@ import { useField } from 'formik';
 import React, { ComponentType, FC } from 'react';
 
 type TextInputProps = {
-  isError: boolean;
   error?: string;
-} & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+  isError: boolean;
+} & object;
 
-const withFormikTextInputHOC = <PropsType extends object>(
-  InputComponent: ComponentType<PropsType & TextInputProps>,
-): FC<PropsType & { name: string }> =>
+const withFormikTextInputHOC = <PropsType extends TextInputProps>(
+  InputComponent: ComponentType<PropsType>,
+): FC<Omit<PropsType, 'error' | 'isError'> & { name: string }> =>
   function FormikTextInputComponent({ name, ...componentProps }) {
     const [field, meta] = useField(name);
 

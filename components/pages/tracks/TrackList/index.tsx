@@ -2,17 +2,19 @@ import React, { FC } from 'react';
 import { ITrack } from '@entities/track/Track';
 import styles from './TrackList.module.scss';
 import TrackItem from '@pageComponents/tracks/TrackItem';
+import TracksManager from '@pageComponents/tracks/TracksManager';
 
-interface ITrackListProps {
+type PropsType = {
   tracks: ITrack[];
-}
+};
 
-const TrackList: FC<ITrackListProps> = ({ tracks }) => {
+const TrackList: FC<PropsType> = (props) => {
   return (
     <div className={styles.root}>
-      {tracks.map((track) => {
+      {props.tracks.map((track) => {
         return <TrackItem key={track.id} track={track} />;
       })}
+      <TracksManager tracks={props.tracks} />
     </div>
   );
 };

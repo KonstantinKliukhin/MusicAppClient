@@ -1,6 +1,11 @@
 .root {
   @apply flex flex-col gap-y-6;
 
+  .label {
+    @apply text-sm text-black;
+    @apply dark:text-white;
+  }
+
   .button {
     @apply self-end;
   }

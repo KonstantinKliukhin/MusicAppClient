@@ -8,11 +8,18 @@ import withFormikTextInputHOC from '../../../../hocs/withFormikTextInputHOC';
 type PropsType = {
   isError: boolean;
   error?: string;
+  label?: string;
+  labelClassName?: string;
 } & React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-const TextInput: FC<PropsType> = ({ isError, error, ...inputProps }) => {
+const TextInput: FC<PropsType> = ({ isError, error, label, labelClassName, ...inputProps }) => {
   return (
     <div className={styles.root}>
+      {label ? (
+        <label htmlFor={inputProps.name} className={labelClassName}>
+          {label}
+        </label>
+      ) : null}
       <input {...inputProps} className={cs(styles.input, { [styles.inputError]: isError })} />
       {isError ? <p className={styles.error}>{error}</p> : null}
     </div>

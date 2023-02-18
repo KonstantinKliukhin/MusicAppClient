@@ -1,5 +1,5 @@
 .root {
-  @apply flex flex-col gap-y-4;
+  @apply flex flex-col pl-4 py-4 border-b-2 border-b-fuchsia-300;
 
   .commentatorName {
     @apply text-lg

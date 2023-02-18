@@ -10,7 +10,13 @@ const TrackCard: FC<PropsType> = (props) => {
   return (
     <WhiteRoundedCard>
       <div className={styles.root}>
-        <Image width={200} height={200} src={props.picture} alt={props.name} />
+        <Image
+          className={styles.img}
+          width={200}
+          height={200}
+          src={props.picture}
+          alt={props.name}
+        />
         <div className={styles.textsWrapper}>
           <h2 className={styles.artistName}>Artist: {props.artist}</h2>
           <h1 className={styles.trackName}>Track: {props.name}</h1>

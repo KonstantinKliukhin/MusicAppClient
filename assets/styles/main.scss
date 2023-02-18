@@ -4,7 +4,7 @@
 
 body {
   font-size: 62.5%;
-  @apply bg-emerald-200 pb-20 overflow-x-hidden overflow-y-auto scroll-m-0;
+  @apply bg-emerald-200 overflow-x-hidden overflow-y-auto scroll-m-0;
   @apply dark:bg-zinc-900;
 
   &::-webkit-scrollbar {

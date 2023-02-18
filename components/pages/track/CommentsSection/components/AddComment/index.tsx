@@ -33,7 +33,6 @@ const AddComment: FC<PropsType> = (props) => {
 
   const onSubmit = useCallback(
     (values: ICreateCommentFormik) => {
-      console.log('create comment');
       if (!props.trackId) return;
       mutate({ trackId: props.trackId, comment: { username: values.name, text: values.comment } });
     },
@@ -41,24 +40,22 @@ const AddComment: FC<PropsType> = (props) => {
   );
 
   return (
-    <div className={styles.root}>
-      <Formik
-        initialValues={createTrackFormikInitialValues}
-        onSubmit={onSubmit}
-        validationSchema={Yup.object({
-          name: Yup.string().required().max(100),
-          comment: Yup.string().required().max(1000),
-        })}
-      >
-        <Form>
-          <FormikTextInput name={'name'} />
-          <FormikTextAreaInput name={'comment'} />
-          <PinkButton className={styles.button} type={'submit'}>
-            Add comment
-          </PinkButton>
-        </Form>
-      </Formik>
-    </div>
+    <Formik
+      initialValues={createTrackFormikInitialValues}
+      onSubmit={onSubmit}
+      validationSchema={Yup.object({
+        name: Yup.string().required().max(100),
+        comment: Yup.string().required().max(1000),
+      })}
+    >
+      <Form className={styles.root}>
+        <FormikTextInput labelClassName={styles.label} name={'name'} label='Your name' />
+        <FormikTextAreaInput labelClassName={styles.label} name={'comment'} label='Your comment' />
+        <PinkButton className={styles.button} type={'submit'}>
+          Add comment
+        </PinkButton>
+      </Form>
+    </Formik>
   );
 };
 
