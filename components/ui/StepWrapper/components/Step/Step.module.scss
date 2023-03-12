@@ -10,4 +10,8 @@
       @apply dark:bg-emerald-400;
     }
   }
+
+  .link {
+    @apply w-full h-full flex justify-center items-center;
+  }
 }

@@ -3,9 +3,13 @@
 
   .title {
     @apply text-8xl;
+    @apply dark:text-white;
   }
 
   .underTitleText {
     @apply text-2xl;
+    @apply dark:text-white;
   }
 }
+
+

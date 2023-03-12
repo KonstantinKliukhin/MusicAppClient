@@ -1,34 +1,32 @@
-'use client'
+import React, { ChangeEventHandler, FC } from 'react';
+import styles from './TrackProgress.module.scss';
 
-import React, { ChangeEvent, FC, useMemo } from 'react'
-import styles from './TrackProgress.module.css'
-import getTimeDueSeconds from '../../../utils/getTimeDueSeconds'
-interface ITrackProgressProps {
-  left: number
-  right: number
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
-  parseSeconds?: boolean
-}
+type PropsType = {
+  currentTime: number;
+  duration: number;
+  onChange: (value: number) => void;
+};
 
-const TrackProgress: FC<ITrackProgressProps> = ({ left, right, onChange, parseSeconds }) => {
-  const leftTimeView: string | number = useMemo(() => {
-    if (!parseSeconds) return Math.ceil(left)
-    return getTimeDueSeconds(left)
-  }, [parseSeconds, left])
-
-  const rightTimeView: string | number = useMemo(() => {
-    if (!parseSeconds) return Math.ceil(right)
-    return getTimeDueSeconds(right)
-  }, [parseSeconds, right])
+const TrackProgress: FC<PropsType> = (props) => {
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    props.onChange(Number(e.target.value));
+  };
 
   return (
     <div className={styles.root}>
-      <input min={0} max={right} value={left} onChange={onChange} type={'range'} />
-      <div>
-        {leftTimeView} / {rightTimeView}
-      </div>
+      <input
+        style={{
+          backgroundSize: `calc(${(props.currentTime * 100) / props.duration}% + 4px) 100%`,
+        }}
+        className={styles.rangeInput}
+        min={0}
+        max={props.duration}
+        value={props.currentTime}
+        onChange={onChange}
+        type={'range'}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default TrackProgress
+export default TrackProgress;

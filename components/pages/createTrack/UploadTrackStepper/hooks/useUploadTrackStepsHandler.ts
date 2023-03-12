@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useFormikContext } from 'formik';
-import { ICreateTrackFormik } from '../../../../../providers/CreateTrackFormikProvider';
+import { ICreateTrackFormik } from '../../CreateTrackFormik';
 import useActions, { useAppSelector } from '@hooks/reduxHooks';
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
 import uploadTrackSteps from '../constants/stepsConfig';

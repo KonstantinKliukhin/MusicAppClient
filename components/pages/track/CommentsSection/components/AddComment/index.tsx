@@ -44,8 +44,8 @@ const AddComment: FC<PropsType> = (props) => {
       initialValues={createTrackFormikInitialValues}
       onSubmit={onSubmit}
       validationSchema={Yup.object({
-        name: Yup.string().required().max(100),
-        comment: Yup.string().required().max(1000),
+        name: Yup.string().trim().required().max(100),
+        comment: Yup.string().trim().required().max(1000),
       })}
     >
       <Form className={styles.root}>

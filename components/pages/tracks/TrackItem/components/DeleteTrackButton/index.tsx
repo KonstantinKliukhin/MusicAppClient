@@ -1,11 +1,11 @@
 'use client';
 
 import React, { FC, useCallback, useTransition } from 'react';
-import { IconButton } from '@mui/material';
 import trackService from '@services/trackService';
 import { Delete } from '@mui/icons-material';
 import { ITrack } from '@entities/track/Track';
 import { useRouter } from 'next/navigation';
+import IconButton from '@uiComponents/buttons/IconButton';
 
 type PropsType = {
   id: ITrack['id'];

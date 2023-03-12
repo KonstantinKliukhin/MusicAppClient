@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useMutation } from 'react-query';
 import { REACT_QUERY_KEYS_TYPE } from '@commonTypes/ReactQueryKeys';
 import TrackService from '@services/trackService';
+import { ROUTES } from '../../../../routes';
 
 export interface ICreateTrackFormik {
   name: string;
@@ -24,7 +25,7 @@ const createTrackFormikInitialValues: ICreateTrackFormik = {
   audio: null,
 };
 
-const CreateTrackFormikProvider: FC<PropsWithChildren> = (props) => {
+const Index: FC<PropsWithChildren> = (props) => {
   const router = useRouter();
 
   const { mutateAsync } = useMutation(REACT_QUERY_KEYS_TYPE.CREATE_TRACK, TrackService.createTrack);
@@ -40,7 +41,7 @@ const CreateTrackFormikProvider: FC<PropsWithChildren> = (props) => {
 
       setSubmitting(false);
 
-      router.push(`/tracks/${newTrack.id}`);
+      router.push(`${ROUTES.TRACKS_LIST}/${newTrack.id}`);
     },
     [mutateAsync, router],
   );
@@ -63,4 +64,4 @@ const CreateTrackFormikProvider: FC<PropsWithChildren> = (props) => {
   );
 };
 
-export default CreateTrackFormikProvider;
+export default Index;

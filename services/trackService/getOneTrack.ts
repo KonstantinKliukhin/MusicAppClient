@@ -1,7 +1,7 @@
 import { ITrack } from '@entities/track/Track';
 import TrackAdapter from '../../types/entities/track/adapters/TrackAdapter';
 import TrackCommentAdapter from '../../types/entities/track/adapters/TrackCommentAdapter';
-import UrlParser from '../../utils/UrlParser';
+import UrlParser from '../../shared/utils/UrlParser';
 import { IGetTrackDTO } from '@entities/track/dto/GetTrack.dto';
 
 const getOneTrack = async (id: ITrack['id']): Promise<ITrack> => {

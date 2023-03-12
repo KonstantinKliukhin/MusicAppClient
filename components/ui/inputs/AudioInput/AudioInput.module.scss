@@ -1,7 +1,32 @@
 .root {
-  @apply flex justify-center items-center w-20 h-20 border-2 border-emerald-600 cursor-pointer;
+  @apply w-full flex justify-center items-center rounded-md border-2 border-emerald-600 border-dashed cursor-pointer;
+  aspect-ratio: 1 / 1;
+  max-height: 40vh;
 
-  .uploadedText {
-    @apply text-2xl text-emerald-600 text-center;
+  &.dragOver {
+    @apply border-emerald-300;
+  }
+
+  .contentWrapper {
+    @apply flex flex-col gap-y-2 items-center;
+
+    .uploadedIcon {
+      width: 80px;
+      height: 80px;
+    }
+
+    .uploadedText {
+      @apply text-2xl text-emerald-600 text-center;
+    }
+
+    .addIcon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .emptyText {
+      @apply text-xl text-black;
+      @apply dark:text-white;
+    }
   }
 }

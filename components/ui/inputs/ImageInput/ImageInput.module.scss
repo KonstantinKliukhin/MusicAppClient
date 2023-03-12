@@ -1,3 +1,30 @@
 .root {
-  @apply flex justify-center items-center w-20 h-20 border-2 border-emerald-600 cursor-pointer;
+  @apply w-full flex justify-center items-center rounded-md border-2 border-emerald-600 border-dashed cursor-pointer;
+  aspect-ratio: 1 / 1;
+  max-height: 40vh;
+
+  &.dragOver {
+    @apply border-emerald-300;
+  }
+
+  .image {
+    height: 100%;
+    width: 100%;
+    @apply object-contain;
+  }
+
+  .emptyContentWrapper {
+    @apply flex flex-col gap-y-2 items-center;
+
+    .addIcon {
+      width: 100px;
+      height: 100px;
+    }
+
+    .emptyText {
+      @apply text-xl text-black;
+      @apply dark:text-white;
+    }
+  }
+
 }

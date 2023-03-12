@@ -5,8 +5,11 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import styles from './ImageInput.module.scss';
 import Image from 'next/image';
 import * as process from 'process';
-import FileInput from '@utilsComponents/inputs/FileInput';
 import withFormikFileInputHOC from '../../../../hocs/withFormikFileInputHOC';
+import FileInput from '@uiComponents/inputs/FileInput';
+import cs from 'classnames';
+import useFileInputDrag from '@hooks/useFileInputDrag';
+import constants from '@constants';
 
 type PropsType = {
   value: File | null;
@@ -16,10 +19,12 @@ type PropsType = {
 const ImageInput: FC<PropsType> = (props) => {
   const setFile = useCallback(
     (file: File) => {
+      if (!constants.ACCEPTED_IMAGE_TYPES.includes(file.type)) return;
       props.setValue(file);
     },
     [props.setValue],
   );
+  const { drag, ...dragHandlers } = useFileInputDrag(setFile);
 
   const url: string | null = useMemo(() => {
     if (!process.browser) return null;
@@ -29,14 +34,21 @@ const ImageInput: FC<PropsType> = (props) => {
   }, [props.value]);
 
   return (
-    <FileInput accept={'image/png, image/jpeg'} setFile={setFile}>
+    <FileInput accept={constants.ACCEPTED_IMAGE_TYPES_STRING} setFile={setFile}>
       {(onClick) => {
         return (
-          <div className={styles.root} onClick={onClick}>
+          <div
+            className={cs(styles.root, { [styles.dragOver]: drag })}
+            onClick={onClick}
+            {...dragHandlers}
+          >
             {url ? (
-              <Image src={url} height={76} width={76} alt={props.value?.name ?? 'file preview'} />
+              <Image className={styles.image} src={url} alt={props.value?.name ?? 'file preview'} />
             ) : (
-              <AddPhotoAlternateIcon />
+              <div className={styles.emptyContentWrapper}>
+                <AddPhotoAlternateIcon className={styles.addIcon} />
+                <p className={styles.emptyText}>Drop your image or click</p>
+              </div>
             )}
           </div>
         );

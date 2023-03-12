@@ -1,0 +1,11 @@
+
+.root {
+  @apply flex justify-center items-center;
+  width: 100vw;
+  height: 100vh;
+
+  .loader {
+    width: 30vh;
+    height: 30vh;
+  }
+}

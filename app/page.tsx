@@ -1,4 +1,11 @@
-import styles from "./Home.module.css";
+import styles from './Home.module.scss';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Bsound',
+  description: 'Welcome to Bsound',
+  keywords: ['Bsound', 'music', 'tracks', 'sound'],
+};
 
 export default function Home() {
   return (
@@ -8,4 +15,3 @@ export default function Home() {
     </div>
   );
 }
-

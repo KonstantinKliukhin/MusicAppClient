@@ -3,20 +3,21 @@ import Image from 'next/image';
 import Logo from '@images/logo/spotify.svg';
 import NavBarLink from './components/NavBarLink';
 import ThemePicker from './components/ThemePicker';
+import { ROUTES } from '../../../routes';
 
 const menuItems = [
   {
-    href: '/',
+    href: ROUTES.HOME,
     text: 'Main page',
   },
   {
-    href: '/tracks',
+    href: ROUTES.TRACKS_LIST,
     text: 'track List',
   },
-  {
-    href: '/albums',
-    text: 'Albums List',
-  },
+  // {
+  //   href: '/albums',
+  //   text: 'Albums List',
+  // },
 ];
 
 export default function NavBar() {

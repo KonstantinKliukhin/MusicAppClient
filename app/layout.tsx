@@ -1,5 +1,5 @@
 import Providers from './providers';
-import DefaultLayout from '../layout/DefaultLayout';
+import DefaultLayout from '../components/layout/DefaultLayout';
 import { PropsWithChildren, Suspense } from 'react';
 import '../assets/styles/main.scss';
 import Loading from './loading';

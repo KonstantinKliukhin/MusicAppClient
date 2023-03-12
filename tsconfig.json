@@ -30,10 +30,11 @@
       "@uiComponents/*": ["components/ui/*"],
       "@bzComponents/*": ["components/business/*"],
       "@pageComponents/*": ["components/pages/*"],
-      "@utilsComponents/*": ["components/utils/*"],
       "@services/*": ["services/*"],
       "@hooks/*": ["hooks/*"],
-      "@images/*": ["assets/images/*"]
+      "@images/*": ["assets/images/*"],
+      "@utils": ["shared/utils"],
+      "@constants": ["shared/constants"]
     }
   },
   "include": [

@@ -1,21 +1,29 @@
 'use client';
 
-import React, { ChangeEvent, FC, useEffect, useState } from 'react'
-import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material'
-import styles from './StaticBottomPlayer.module.scss'
-import { IconButton } from '@mui/material'
-import { useRouter } from 'next/navigation'
-import TrackProgress from '../TrackProgress'
-import useActions, { useAppSelector } from '@hooks/reduxHooks'
-import { ITrack } from '@entities/track/Track'
-// import IconButton from '@uiComponents/buttons/IconButton';
+import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material';
+import styles from './StaticBottomPlayer.module.scss';
+import RangeInput from '../../ui/inputs/RangeInput';
+import useActions, { useAppSelector } from '@hooks/reduxHooks';
+import { ITrack } from '@entities/track/Track';
+import IconButton from '@uiComponents/buttons/IconButton';
+import TrackProgress from '@bzComponents/TrackProgress';
+import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
 
 let audio: HTMLAudioElement | null = null;
 
 const StaticBottomPlayer: FC = () => {
   const { pause, volume, active, duration, currentTime } = useAppSelector((state) => state.player);
-  const { pauseTrack, playTrack, setVolume, setCurrentTime, setDuration } = useActions();
-  const router = useRouter();
+  const {
+    pauseTrack,
+    playTrack,
+    setVolume,
+    setCurrentTime,
+    setDuration,
+    playNextTrack,
+    playPrevTrack,
+  } = useActions();
   const [savedTrackId, setSavedTrackId] = useState<ITrack['id'] | null>(null);
 
   useEffect(() => {
@@ -78,32 +86,46 @@ const StaticBottomPlayer: FC = () => {
     setVolume(Number(e.target.value));
   };
 
-  const changeCurrentTime = (e: ChangeEvent<HTMLInputElement>) => {
+  const changeCurrentTime = (value: number) => {
     if (!audio) return;
-    const newTime = Number(e.target.value);
-    audio.currentTime = newTime;
-    setCurrentTime(newTime);
+    audio.currentTime = value;
+    setCurrentTime(value);
   };
 
   if (!active) return null;
   return (
     <div className={styles.root}>
       <div className={styles.player}>
-        <div className={styles.contentWrapper}>
-          <IconButton onClick={togglePlay}>{pause ? <PlayArrow /> : <Pause />}</IconButton>
-          <div className={styles.textWrapper}>
-            <p onClick={() => router.push(`/tracks/${active.id}`)}>{active.name}</p>
-            <p>{active.artist}</p>
+        {audio ? (
+          <div className={styles.trackProgressWrapper}>
+            <TrackProgress
+              currentTime={currentTime}
+              duration={duration}
+              onChange={changeCurrentTime}
+            />
           </div>
-          <TrackProgress
-            parseSeconds
-            left={currentTime}
-            right={duration}
-            onChange={changeCurrentTime}
-          />
+        ) : null}
+        <div className={styles.contentWrapper}>
+          <div className={styles.manageTrackButtonsWrapper}>
+            <IconButton className={styles.manageTrackButton} onClick={() => playPrevTrack()}>
+              <SkipPreviousIcon />
+            </IconButton>
+            <IconButton className={styles.manageTrackButton} onClick={togglePlay}>
+              {pause ? <PlayArrow /> : <Pause />}
+            </IconButton>
+            <IconButton className={styles.manageTrackButton} onClick={() => playNextTrack()}>
+              <SkipNextIcon />
+            </IconButton>
+          </div>
+
+          <div className={styles.textWrapper}>
+            <p className={styles.trackName}>{active.name}</p>
+            <p className={styles.artistName}>{active.artist}</p>
+          </div>
+
           <div className={styles.volumeSectionWrapper}>
             <VolumeUp />
-            <TrackProgress left={volume} right={100} onChange={changeVolume} />
+            <RangeInput left={volume} right={100} onChange={changeVolume} />
           </div>
         </div>
       </div>

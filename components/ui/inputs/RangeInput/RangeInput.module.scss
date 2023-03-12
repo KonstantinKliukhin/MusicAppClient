@@ -1,0 +1,33 @@
+.root {
+  @apply flex items-center;
+
+  .rangeInput {
+    @apply w-full bg-gray-400 bg-gradient-to-r from-indigo-400 via-indigo-600 to-indigo-900 rounded-xl;
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    /***** Track Styles *****/
+    /***** Chrome, Safari, Opera, and Edge Chromium *****/
+    &::-webkit-slider-runnable-track {
+      @apply h-1.5 bg-transparent;
+    }
+
+    &::-webkit-slider-thumb {
+      @apply block h-3 w-3 bg-indigo-800 rounded-full;
+      -webkit-appearance: none;
+      /* Override default look */
+      appearance: none;
+      margin-top: -0.2rem;
+    }
+
+    /******** Firefox ********/
+    &::-moz-range-track {
+      @apply bg-teal-400 h-1.5;
+    }
+
+    &::-moz-range-thumb {
+      @apply block h-3 w-3 bg-indigo-800 rounded-full;
+      border: none; /*Removes extra border that FF applies*/
+      margin-top: -0.2rem;
+    }
+  }
+}

@@ -1,17 +1,18 @@
-import { IStep } from '@uiComponents/StepWrapper/type'
+import { IStep } from '@uiComponents/StepWrapper/type';
+import { ROUTES } from '../../../../../routes';
 
 const uploadTrackSteps: IStep[] = [
   {
-    link: '/tracks/create/first-step',
-    linkText: 1
+    link: ROUTES.CREATE_TRACK_FIRST_STEP,
+    linkText: 1,
   },
   {
-    link: '/tracks/create/second-step',
-    linkText: 2
+    link: ROUTES.CREATE_TRACK_SECOND_STEP,
+    linkText: 2,
   },
   {
-    link: '/tracks/create/third-step',
-    linkText: 3
-  }
-]
+    link: ROUTES.CREATE_TRACK_THIRD_STEP,
+    linkText: 3,
+  },
+];
 export default uploadTrackSteps;

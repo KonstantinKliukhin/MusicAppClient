@@ -24,17 +24,17 @@ const UploadTrackMoveButton: FC<PropsType> = (props) => {
 
   const isSubmitType = props.type === 'submit';
 
-  return (
+  return isDisabled || isSubmitType || !props.link ? (
     <PinkButton
       className={cs({ [styles.disabled]: isDisabled })}
       type={isSubmitType && !isDisabled ? 'submit' : 'button'}
     >
-      {isSubmitType || !props.link ? (
-        props.children
-      ) : (
-        <Link href={isDisabled ? '#' : props.link}>{props.children}</Link>
-      )}
+      {props.children}
     </PinkButton>
+  ) : (
+    <Link href={props.link}>
+      <PinkButton>{props.children}</PinkButton>
+    </Link>
   );
 };
 

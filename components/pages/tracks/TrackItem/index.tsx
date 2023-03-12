@@ -6,6 +6,7 @@ import DeleteTrackButton from './components/DeleteTrackButton';
 import PlayTrackButton from './components/PlayTrackButton';
 import TrackTimeView from '@bzComponents/TrackTimeView';
 import Link from 'next/link';
+import { ROUTES } from '../../../../routes';
 
 interface ITrackItemProps {
   track: ITrack;
@@ -24,7 +25,7 @@ const TrackItem: FC<ITrackItemProps> = ({ track }) => {
           className={styles.trackImage}
         />
         <div>
-          <Link className={styles.trackName} href={`/tracks/${track.id}`}>
+          <Link className={styles.trackName} href={`${ROUTES.TRACKS_LIST}/${track.id}`}>
             {track.name}
           </Link>
           <p>{track.artist}</p>

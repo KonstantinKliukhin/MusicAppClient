@@ -1,24 +1,34 @@
-'use client'
+'use client';
 
-import React, { FC } from 'react'
-import styles from './Step.module.scss'
-import Link from 'next/link'
-import cs from 'classnames'
+import React, { FC } from 'react';
+import styles from './Step.module.scss';
+import Link from 'next/link';
+import cs from 'classnames';
 
 type PropsType = {
   isActive: boolean;
   canGo: boolean;
   link: string;
   linkText: string | number;
-}
+};
 
-
-const Step: FC<PropsType> = props => {
+const Step: FC<PropsType> = (props) => {
   return (
-    <div className={cs(styles.root, {[styles.allowed]: props.canGo, [styles.active]: props.isActive})}>
-      {props.canGo ? <Link href={props.link}>{props.linkText}</Link> : <p>{props.linkText}</p>}
+    <div
+      className={cs(styles.root, {
+        [styles.allowed]: props.canGo,
+        [styles.active]: props.isActive,
+      })}
+    >
+      {props.canGo ? (
+        <Link className={styles.link} href={props.link}>
+          {props.linkText}
+        </Link>
+      ) : (
+        <p>{props.linkText}</p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Step
+export default Step;

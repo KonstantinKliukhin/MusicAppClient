@@ -1,7 +1,7 @@
-import { IGetTrackDTO } from '../../types/entities/track/dto/GetTrack.dto';
+import { IGetTrackDTO } from '@entities/track/dto/GetTrack.dto';
 import TrackAdapter from '../../types/entities/track/adapters/TrackAdapter';
 import TrackCommentAdapter from '@entities/track/adapters/TrackCommentAdapter';
-import UrlParser from '../../utils/UrlParser';
+import UrlParser from '../../shared/utils/UrlParser';
 
 const getTracks = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks`, { cache: 'no-store' });

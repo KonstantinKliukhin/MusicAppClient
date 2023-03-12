@@ -3,6 +3,9 @@
 import React, { FC, useEffect, useMemo } from 'react';
 import { ITrack } from '@entities/track/Track';
 import useActions, { useAppSelector } from '@hooks/reduxHooks';
+import { useMutation } from 'react-query';
+import { REACT_QUERY_KEYS_TYPE } from '@commonTypes/ReactQueryKeys';
+import TrackService from '@services/trackService';
 
 type PropsType = {
   tracks: ITrack[];
@@ -15,7 +18,21 @@ const TracksManager: FC<PropsType> = (props) => {
     active: activeTrack,
     pause: isPaused,
   } = useAppSelector((state) => state.player);
-  const { setActiveTrack, playTrack } = useActions();
+  const { setTracksQueue, playNextTrack, setActiveTrack } = useActions();
+  const { mutateAsync } = useMutation(
+    REACT_QUERY_KEYS_TYPE.MUTATE_TRACK,
+    TrackService.addTrackListen,
+  );
+
+  useEffect(() => {
+    if (!props.tracks.length) return;
+
+    if (activeTrack && !props.tracks.some((track) => track.id === activeTrack.id)) {
+      setActiveTrack(null);
+    }
+
+    setTracksQueue(props.tracks);
+  }, [props.tracks]);
 
   const currentTrackOrder = useMemo(() => {
     if (!activeTrack || !props.tracks.length) return -1;
@@ -23,7 +40,7 @@ const TracksManager: FC<PropsType> = (props) => {
   }, [props.tracks, activeTrack]);
 
   useEffect(
-    function playNextTrack() {
+    function playNextTrackAfterEnd() {
       if (
         duration > currentTime ||
         isPaused ||
@@ -32,13 +49,9 @@ const TracksManager: FC<PropsType> = (props) => {
         !props.tracks.length
       )
         return;
+      mutateAsync(activeTrack.id);
 
-      const nextTrack = props.tracks[currentTrackOrder + 1]
-        ? props.tracks[currentTrackOrder + 1]
-        : props.tracks[0];
-
-      setActiveTrack(nextTrack);
-      playTrack();
+      playNextTrack();
     },
     [currentTime, activeTrack, duration, currentTrackOrder, isPaused, props.tracks],
   );
