@@ -3,12 +3,12 @@
 import React, { FC, useCallback, useTransition } from 'react';
 import trackService from '@services/trackService';
 import { Delete } from '@mui/icons-material';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 import { useRouter } from 'next/navigation';
 import IconButton from '@uiComponents/buttons/IconButton';
 
 type PropsType = {
-  id: ITrack['id'];
+  id: Track['id'];
 };
 
 const DeleteTrackButton: FC<PropsType> = (props) => {

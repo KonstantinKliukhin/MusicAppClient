@@ -1,14 +1,14 @@
 'use client';
 
 import React, { FC, useEffect, useMemo } from 'react';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 import useActions, { useAppSelector } from '@hooks/reduxHooks';
 import { useMutation } from 'react-query';
 import { REACT_QUERY_KEYS_TYPE } from '@commonTypes/ReactQueryKeys';
 import TrackService from '@services/trackService';
 
 type PropsType = {
-  tracks: ITrack[];
+  tracks: Track[];
 };
 
 const TracksManager: FC<PropsType> = (props) => {

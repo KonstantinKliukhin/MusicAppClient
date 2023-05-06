@@ -1,10 +1,10 @@
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 
 export interface IPlayerState {
-  active: null | ITrack;
+  active: null | Track;
   volume: number;
   duration: number;
   currentTime: number;
   pause: boolean;
-  tracksQueue: ITrack[];
+  tracksQueue: Track[];
 }

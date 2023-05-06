@@ -15,7 +15,7 @@ type PropsType = {
 };
 
 export async function generateMetadata({ params }: PropsType): Promise<Metadata> {
-  const track = await TrackService.getOneTrack(params.id);
+  const track = await TrackService.getOneTrack(Number(params.id));
 
   return {
     title: `Track: ${track.name}`,
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PropsType): Promise<Metadata>
 }
 
 const TrackPage = async (props: PropsType) => {
-  const track = await TrackService.getOneTrack(props.params.id);
+  const track = await TrackService.getOneTrack(Number(props.params.id));
 
   return (
     <Container>

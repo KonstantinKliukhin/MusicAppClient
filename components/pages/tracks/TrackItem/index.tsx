@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 import styles from './TrackItem.module.scss';
 import Image from 'next/image';
 import DeleteTrackButton from './components/DeleteTrackButton';
@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { ROUTES } from '../../../../routes';
 
 interface ITrackItemProps {
-  track: ITrack;
+  track: Track;
 }
 
 const TrackItem: FC<ITrackItemProps> = ({ track }) => {

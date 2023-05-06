@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import styles from './CommentsList.module.scss';
 import CommentItem from '@pageComponents/track/CommentsSection/components/CommentItem';
-import { ITrackComment } from '@entities/track/TrackComment';
+import { TrackComment } from '@entities/track/TrackComment';
 
 type PropsType = {
-  comments: ITrackComment[];
+  comments: TrackComment[];
 };
 
 const CommentsList: FC<PropsType> = (props) => {

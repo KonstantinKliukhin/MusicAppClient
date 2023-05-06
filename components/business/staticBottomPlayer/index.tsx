@@ -5,7 +5,7 @@ import { Pause, PlayArrow, VolumeUp } from '@mui/icons-material';
 import styles from './StaticBottomPlayer.module.scss';
 import RangeInput from '../../ui/inputs/RangeInput';
 import useActions, { useAppSelector } from '@hooks/reduxHooks';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 import IconButton from '@uiComponents/buttons/IconButton';
 import TrackProgress from '@bzComponents/TrackProgress';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
@@ -24,7 +24,7 @@ const StaticBottomPlayer: FC = () => {
     playNextTrack,
     playPrevTrack,
   } = useActions();
-  const [savedTrackId, setSavedTrackId] = useState<ITrack['id'] | null>(null);
+  const [savedTrackId, setSavedTrackId] = useState<Track['id'] | null>(null);
 
   useEffect(() => {
     if (!audio) return;

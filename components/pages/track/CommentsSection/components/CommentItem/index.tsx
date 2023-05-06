@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import styles from './CommentItem.module.scss';
-import { ITrackComment } from '@entities/track/TrackComment';
+import { TrackComment } from '@entities/track/TrackComment';
 
-type PropsType = ITrackComment;
+type PropsType = TrackComment;
 
 const CommentItem: FC<PropsType> = (props) => {
   return (

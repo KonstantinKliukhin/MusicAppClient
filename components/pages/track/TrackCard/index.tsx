@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import WhiteRoundedCard from '@uiComponents/cards/WhiteRoundedCard';
 import styles from './TrackCard.module.scss';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 import Image from 'next/image';
 
-type PropsType = ITrack;
+type PropsType = Track;
 
 const TrackCard: FC<PropsType> = (props) => {
   return (

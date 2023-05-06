@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 import { IPlayerState } from './types';
 
 const initialState: IPlayerState = {
@@ -30,13 +30,13 @@ const playerSlice = createSlice({
     setCurrentTime: (state, action: PayloadAction<number>) => {
       state.currentTime = action.payload;
     },
-    setActiveTrack: (state, action: PayloadAction<null | ITrack>) => {
+    setActiveTrack: (state, action: PayloadAction<null | Track>) => {
       if (action.payload?.id === state.active?.id) return;
       state.active = action.payload;
       state.duration = 1;
       state.currentTime = 0;
     },
-    setTracksQueue: (state, action: PayloadAction<ITrack[]>) => {
+    setTracksQueue: (state, action: PayloadAction<Track[]>) => {
       state.tracksQueue = action.payload;
     },
     playNextTrack: (state) => {

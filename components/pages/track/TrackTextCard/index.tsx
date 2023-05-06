@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import WhiteRoundedCard from '@uiComponents/cards/WhiteRoundedCard';
 import styles from './TrackTextCard.module.scss';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 
-type PropsType = ITrack;
+type PropsType = Track;
 
 const TrackTextCard: FC<PropsType> = (props) => {
   return (

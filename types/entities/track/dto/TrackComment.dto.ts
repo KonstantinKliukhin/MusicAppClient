@@ -1,5 +1,5 @@
 export interface ITrackCommentDTO {
-    _id: string
-    username: string
-    text: string
+  id: number;
+  username: string;
+  text: string;
 }

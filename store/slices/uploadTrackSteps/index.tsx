@@ -16,12 +16,19 @@ const uploadTrackStepsSlice = createSlice({
       state.currentStep = action.payload;
     },
     addValidStep: (state, action: PayloadAction<number>) => {
-      state.validSteps.push(action.payload);
-      state.allowedSteps.push(action.payload + 1);
+      if (!state.validSteps.includes(action.payload)) {
+        state.validSteps.push(action.payload);
+      }
+
+      if (!state.allowedSteps.includes(action.payload + 1)) {
+        state.allowedSteps.push(action.payload + 1);
+      }
     },
     deleteValidStep: (state, action: PayloadAction<number>) => {
       state.validSteps = state.validSteps.filter((step) => step !== action.payload);
-      state.allowedSteps.filter((step) => step !== action.payload + 1);
+    },
+    clearStepsData: (state) => {
+      state = initialState;
     },
   },
 });

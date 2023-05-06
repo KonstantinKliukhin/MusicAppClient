@@ -1,24 +1,24 @@
 import axios from 'axios';
 import { ITrackCommentDTO } from '@entities/track/dto/TrackComment.dto';
 import { ICreateCommentDto } from '@entities/track/dto/CreateComment.dto';
-import TrackCommentAdapter from '@entities/track/adapters/TrackCommentAdapter';
-import { ITrackComment } from '@entities/track/TrackComment';
+import jsonToTrackComment from '@entities/track/adapters/jsonToTrackComment';
+import { TrackComment } from '@entities/track/TrackComment';
 
 type CreateTrackCommentType = (data: {
-  trackId: ITrackComment['id'];
+  trackId: TrackComment['id'];
   comment: ICreateCommentDto;
-}) => Promise<ITrackComment>;
+}) => Promise<TrackComment>;
 
 const createTrackComment: CreateTrackCommentType = async ({
   trackId,
   comment,
-}): Promise<ITrackComment> => {
+}): Promise<TrackComment> => {
   const { data: dto } = await axios.post<ITrackCommentDTO>(
     `${process.env.NEXT_PUBLIC_API_PATH}/tracks/${trackId}/comment`,
     comment,
   );
 
-  return new TrackCommentAdapter(dto);
+  return jsonToTrackComment(dto);
 };
 
 export default createTrackComment;

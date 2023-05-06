@@ -1,13 +1,18 @@
-class UrlParser {
-  private readonly _url: string;
+import IURLParse from '@commonTypes/urlParser';
 
-  constructor(url: string) {
-    this._url = process.env.NEXT_PUBLIC_API_PATH + '/' + url;
+class UrlParser implements IURLParse {
+  private readonly prefix: string;
+
+  constructor(prefix: string | undefined) {
+    if (!prefix) throw new Error("Prefix didn't provided");
+    this.prefix = process.env.NEXT_PUBLIC_API_PATH + '/';
   }
 
-  get url(): string {
-    return this._url;
+  getUrl(path: string): string {
+    return this.prefix + path;
   }
 }
 
-export default UrlParser;
+const urlParser = new UrlParser(process.env.NEXT_PUBLIC_API_PATH);
+
+export default urlParser;

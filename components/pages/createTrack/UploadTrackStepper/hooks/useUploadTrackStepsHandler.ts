@@ -10,7 +10,7 @@ const useUploadTrackStepsHandler = (): void => {
   const route = useSelectedLayoutSegment();
   const validSteps = useAppSelector((state) => state.uploadTrackSteps.validSteps);
   const allowedSteps = useAppSelector((state) => state.uploadTrackSteps.allowedSteps);
-  const { addValidStep, deleteValidStep, changeUploadTrackStep } = useActions();
+  const { addValidStep, deleteValidStep, changeUploadTrackStep, clearStepsData } = useActions();
   const router = useRouter();
 
   useEffect(
@@ -36,6 +36,12 @@ const useUploadTrackStepsHandler = (): void => {
 
     changeUploadTrackStep(newCurrentStep);
   }, [route]);
+
+  useEffect(function clearState() {
+    return () => {
+      clearStepsData();
+    };
+  }, []);
 
   useEffect(
     function manageValidStepsDueFormik() {

@@ -10,7 +10,7 @@ import TrackService from '@services/trackService';
 import { FormikTextInput } from '@uiComponents/inputs/TextInput';
 import { FormikTextAreaInput } from '@uiComponents/inputs/TextAreaInput';
 import PinkButton from '@uiComponents/buttons/PinkButton';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 import * as Yup from 'yup';
 
 interface ICreateCommentFormik {
@@ -19,7 +19,7 @@ interface ICreateCommentFormik {
 }
 
 type PropsType = {
-  trackId: ITrack['id'];
+  trackId: Track['id'];
 };
 
 const createTrackFormikInitialValues: ICreateCommentFormik = { name: '', comment: '' };

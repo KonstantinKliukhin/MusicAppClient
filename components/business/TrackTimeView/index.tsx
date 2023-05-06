@@ -3,10 +3,10 @@
 import React, { FC, useMemo } from 'react';
 import { useAppSelector } from '@hooks/reduxHooks';
 import utils from '@utils';
-import { ITrack } from '@entities/track/Track';
+import { Track } from '@entities/track/Track';
 
 type PropsType = {
-  id: ITrack['id'];
+  id: Track['id'];
 };
 
 const TrackTimeView: FC<PropsType> = (props) => {
