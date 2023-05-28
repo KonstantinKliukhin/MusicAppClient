@@ -1,15 +1,19 @@
 'use client';
 
-import { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import ReduxProvider from '../providers/ReduxProvider';
 import ReactQueryProvider from '../providers/ReactQueryProvider';
+import AuthSessionProvider from '../providers/AuthSessionProvider';
+import { Session } from 'next-auth';
 
-type PropsType = PropsWithChildren;
+type PropsType = PropsWithChildren & { session: Session };
 
-export default function Providers({ children }: PropsType) {
-  return (
+const Providers: FC<PropsType> = (props) => (
+  <AuthSessionProvider session={props.session}>
     <ReactQueryProvider>
-      <ReduxProvider>{children}</ReduxProvider>
+      <ReduxProvider>{props.children}</ReduxProvider>
     </ReactQueryProvider>
-  );
-}
+  </AuthSessionProvider>
+);
+
+export default Providers;

@@ -4,6 +4,7 @@ import styles from './WhiteRoundedCard.module.scss';
 type PropsType = {
   title?: string;
 } & PropsWithChildren;
+
 const WhiteRoundedCard: FC<PropsType> = (props) => {
   return (
     <div className={styles.root}>

@@ -5,7 +5,9 @@ import { IGetTrackDTO } from '@entities/track/dto/GetTrack.dto';
 
 const getOneTrack = async (id: Track['id']): Promise<Track> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks/${id}`, {
-    cache: 'no-store',
+    next: {
+      tags: [''],
+    },
   });
 
   const dto: IGetTrackDTO = await response.json();

@@ -5,10 +5,21 @@ import { FormikTextInput } from '@uiComponents/inputs/TextInput';
 import { FormikTextAreaInput } from '@uiComponents/inputs/TextAreaInput';
 import { ROUTES } from '../../../../routes';
 import constants from '@constants';
+import axios from 'axios';
 
 export const metadata = constants.CREATE_TRACK_PAGES_METADATA;
 
-export default function FirstStep() {
+export default async function FirstStep() {
+  await axios.post(
+    `${process.env.NEXT_PUBLIC_API_PATH}/auth/sign-in`,
+    {
+      email: 'kostya+1@gmail.com',
+      password: 'qweqwe',
+    },
+    {
+      withCredentials: true,
+    },
+  );
   return (
     <>
       <WhiteRoundedCard title={'track name'}>

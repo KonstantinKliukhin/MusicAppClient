@@ -1,11 +1,15 @@
+'use client';
+
 import styles from './NavBar.module.scss';
 import Image from 'next/image';
 import Logo from '@images/logo/spotify.svg';
 import NavBarLink from './components/NavBarLink';
 import ThemePicker from './components/ThemePicker';
 import { ROUTES } from '../../../routes';
+import SignInButton from '@bzComponents/buttons/SignInButton';
+import SignUpButton from '@bzComponents/buttons/signUpButton';
 
-const menuItems = [
+const menuLinks = [
   {
     href: ROUTES.HOME,
     text: 'Main page',
@@ -25,11 +29,13 @@ export default function NavBar() {
     <nav className={styles.root}>
       <Image className={styles.logo} src={Logo} alt={'logo'} />
       <ul className={styles.linksContainer}>
-        {menuItems.map((link) => (
+        {menuLinks.map((link) => (
           <NavBarLink key={link.href} href={link.href} text={link.text} />
         ))}
       </ul>
       <div className={styles.buttonsContainer}>
+        <SignInButton />
+        <SignUpButton />
         <button>
           <ThemePicker />
         </button>

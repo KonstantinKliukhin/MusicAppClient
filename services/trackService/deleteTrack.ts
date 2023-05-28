@@ -1,10 +1,13 @@
 import { Track } from '@entities/track/Track';
-import { IGetTrackDTO } from '@entities/track/dto/GetTrack.dto';
-import axios from 'axios';
+import { HTTP_METHODS_TYPE } from '@commonTypes/HttpMethods';
+import { ROUTES } from '../../routes';
+import enhancedFetch from '@services/enhancedFecth';
 
-const deleteOneTrack = async (id: Track['id']): Promise<void> => {
-  await axios.delete<IGetTrackDTO>(`${process.env.NEXT_PUBLIC_API_PATH}/tracks/${id}`);
-  return;
+const deleteOneTrack = (id: Track['id']) => {
+  return enhancedFetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks/${id}`, {
+    method: HTTP_METHODS_TYPE.DELETE,
+    revalidate: [ROUTES.TRACKS_LIST],
+  });
 };
 
 export default deleteOneTrack;

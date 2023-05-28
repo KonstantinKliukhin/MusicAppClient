@@ -4,11 +4,12 @@
   &.trackCardDark {
     @apply bg-purple-900;
   }
+
   .trackCardBody {
     @apply flex gap-3 items-center p-2 w-full;
 
     .trackImage {
-      @apply m-0;
+      @apply m-0 aspect-square object-cover;
       img {
         @apply object-cover;
       }

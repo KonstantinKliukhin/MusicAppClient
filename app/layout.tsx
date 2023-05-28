@@ -3,10 +3,13 @@ import DefaultLayout from '../components/layout/DefaultLayout';
 import { PropsWithChildren, Suspense } from 'react';
 import '../assets/styles/main.scss';
 import Loading from './loading';
+import { Session } from 'next-auth';
 
-type PropsType = PropsWithChildren;
+type PropsType = PropsWithChildren & {
+  session: Session;
+};
 
-export default function RootLayout({ children }: PropsType) {
+export default function RootLayout(props: PropsType) {
   return (
     <html lang='en' className='dark'>
       <head>
@@ -14,9 +17,9 @@ export default function RootLayout({ children }: PropsType) {
         <meta name='description' content='Best tracks ' />
       </head>
       <body>
-        <Providers>
+        <Providers session={props.session}>
           <DefaultLayout>
-            <Suspense fallback={<Loading />}>{children}</Suspense>
+            <Suspense fallback={<Loading />}>{props.children}</Suspense>
           </DefaultLayout>
         </Providers>
       </body>

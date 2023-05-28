@@ -1,11 +1,12 @@
-import axios from 'axios';
-import { ITrackCommentDTO } from '@entities/track/dto/TrackComment.dto';
 import { Track } from '@entities/track/Track';
+import { HTTP_METHODS_TYPE } from '@commonTypes/HttpMethods';
 
 const addTrackListen = async (trackId: Track['id']) => {
-  return await axios.post<ITrackCommentDTO>(
-    `${process.env.NEXT_PUBLIC_API_PATH}/tracks/listen/${trackId}`,
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks/listen/${trackId}`, {
+    method: HTTP_METHODS_TYPE.POST,
+  });
+
+  return res.json();
 };
 
 export default addTrackListen;
