@@ -1,0 +1,20 @@
+
+.root {
+  @apply fixed top-0 left-0 w-full bg-zinc-100 h-20 px-10 py-4 flex justify-between items-center gap-x-20;
+  @apply dark:bg-fuchsia-800;
+  z-index: 1000;
+
+  .logo {
+    @apply w-28 h-10;
+  }
+
+  .navigation {
+    @apply flex gap-x-10 absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .right {
+    @apply flex gap-x-6;
+  }
+}

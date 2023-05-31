@@ -25,16 +25,36 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@entities/*": ["types/entities/*"],
-      "@commonTypes/*": ["types/common/*"],
-      "@uiComponents/*": ["components/ui/*"],
-      "@bzComponents/*": ["components/business/*"],
-      "@pageComponents/*": ["components/pages/*"],
-      "@services/*": ["services/*"],
-      "@hooks/*": ["hooks/*"],
-      "@images/*": ["assets/images/*"],
-      "@utils": ["shared/utils"],
-      "@constants": ["shared/constants"]
+      "@entities/*": [
+        "old/types/entities/*"
+      ],
+      "@commonTypes/*": [
+        "old/types/common/*"
+      ],
+      "@uiComponents/*": [
+        "old/components/ui/*"
+      ],
+      "@bzComponents/*": [
+        "old/components/business/*"
+      ],
+      "@pageComponents/*": [
+        "old/components/pages/*"
+      ],
+      "@services/*": [
+        "old/services/*"
+      ],
+      "@hooks/*": [
+        "old/hooks/*"
+      ],
+      "@images/*": [
+        "assets/images/*"
+      ],
+      "@utils": [
+        "old/shared/utils"
+      ],
+      "@constants": [
+        "old/shared/constants"
+      ]
     }
   },
   "include": [
@@ -45,5 +65,5 @@
   ],
   "exclude": [
     "node_modules"
-  ],
+  ]
 }
