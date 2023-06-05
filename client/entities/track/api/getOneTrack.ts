@@ -1,7 +1,7 @@
 import { Track } from '../model';
 import jsonToTrack from '../lib/jsonToTrack';
-import urlParser from '../../../../old/shared/utils/UrlParser';
 import { GetTrackDtoType } from './types';
+import { urlParser } from '../../../shared/lib';
 
 const getOneTrack = async (id: Track['id']): Promise<Track> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks/${id}`, {
@@ -12,7 +12,7 @@ const getOneTrack = async (id: Track['id']): Promise<Track> => {
 
   const dto: GetTrackDtoType = await response.json();
 
-  return jsonToTrack(dto, urlParser);
+  return jsonToTrack(dto);
 };
 
 export default getOneTrack;

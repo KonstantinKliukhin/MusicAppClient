@@ -1,1 +1,1 @@
-export * from './ui';
+export { VolumeInput } from './ui';

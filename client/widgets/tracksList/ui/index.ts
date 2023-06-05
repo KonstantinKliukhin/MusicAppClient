@@ -1,1 +1,1 @@
-export * from './tracksList/tracksList';
+export { TracksList } from './TracksList/TracksList';

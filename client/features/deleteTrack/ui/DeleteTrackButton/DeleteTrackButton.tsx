@@ -3,7 +3,7 @@
 import React, { FC } from 'react';
 import { Delete } from '@mui/icons-material';
 import IconButton from '../../../../shared/ui/buttons/IconButton';
-import { Track, tracksDeleteOneEffect } from '../../../../entities/track/model';
+import { Track, tracksDeleteOneEffect } from '../../../../entities/track';
 import { useUnit } from 'effector-react';
 
 type PropsType = {

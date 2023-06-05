@@ -1,1 +1,1 @@
-export * from './ui';
+export {ThemePicker} from './ui';

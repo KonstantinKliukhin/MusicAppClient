@@ -1,0 +1,11 @@
+.root {
+  @apply mb-5;
+
+  .cardBody {
+    @apply flex flex-col gap-y-5
+  }
+
+  .actionsCardBody {
+    @apply flex gap-x-4 items-center;
+  }
+}

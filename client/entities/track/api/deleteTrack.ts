@@ -1,5 +1,5 @@
 import { Track } from '../model';
-import { HTTP_METHODS_TYPE } from '@commonTypes/HttpMethods';
+import { HTTP_METHODS_TYPE } from '../../../shared/types/HttpMethods';
 import { ROUTES } from '../../../../routes';
 import { enhancedFetch } from '../../../shared/api';
 

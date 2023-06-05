@@ -1,5 +1,3 @@
-'use client';
-
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import Logo from '@images/logo/spotify.svg';

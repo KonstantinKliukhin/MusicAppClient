@@ -1,6 +1,27 @@
-export * from './pause';
-export * from './currentTime';
-export * from './duration';
-export * from './volume';
-export * from './activeTrack';
-export * from './tracksQueue';
+export {
+  $duration,
+  $currentTime,
+  setCurrentTimeEvent,
+  $pause,
+  pauseEvent,
+  playEvent,
+  clearDurationEvent,
+  durationSetEvent,
+  setActiveTrackEvent,
+  $activeTrack,
+  setVolumeActionEvent,
+  $volume,
+  $nextTrack,
+  $prevTrack,
+  playPrevTrackEvent,
+  playNextTrackEvent,
+  trackEndedEvent,
+  tracksQueueSetNextEvent,
+  $isActiveTrackInTracksQueue,
+  $activeTrackExist,
+  tracksQueueSetQueueEvent,
+  currentTimeTickEvent,
+  togglePlayerEvent,
+} from './player';
+
+export { useIsCurrentTrack, } from './hooks';

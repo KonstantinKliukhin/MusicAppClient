@@ -1,9 +1,9 @@
 import { Track } from '../model';
 import { GetTrackDtoType } from '../api';
-import IURLParser from '@commonTypes/urlParser';
 import { jsonToTrackComment } from '../../trackComment/lib';
+import { urlParser } from '../../../shared/lib';
 
-function jsonToTrack(json: GetTrackDtoType, urlParser: IURLParser): Track {
+function jsonToTrack(json: GetTrackDtoType): Track {
   return new Track(
     json.id,
     json.name,
@@ -13,6 +13,8 @@ function jsonToTrack(json: GetTrackDtoType, urlParser: IURLParser): Track {
     urlParser.getUrl(json.picture),
     urlParser.getUrl(json.audio),
     json.comments.map(jsonToTrackComment),
+    json.createdAt,
+    json.updatedAt,
   );
 }
 

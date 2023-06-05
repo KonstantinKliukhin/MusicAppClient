@@ -3,12 +3,17 @@
 import React, { FC } from 'react';
 import styles from './Stepper.module.scss';
 import Step from '../Step';
-import { IStep } from './type';
+
+type StepType = {
+  link: string;
+  linkText: string | number;
+}
 
 interface IStepWrapperProps {
   activeStep: number;
-  steps: IStep[];
+  steps: StepType[];
   allowedSteps: number[];
+  onChange?: (step: number) => void;
 }
 
 const Stepper: FC<IStepWrapperProps> = (props) => {
@@ -16,6 +21,7 @@ const Stepper: FC<IStepWrapperProps> = (props) => {
     <div className={styles.root}>
       {props.steps.map((step, index) => (
         <Step
+          onClick={() => props.onChange && props.onChange(index)}
           key={index}
           isActive={props.activeStep === index}
           link={step.link}

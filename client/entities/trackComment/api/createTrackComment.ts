@@ -1,7 +1,7 @@
 import { CreateCommentDtoType, TrackCommentDTOType } from './types';
-import jsonToTrackComment from '../lib/jsonToTrackComment';
-import { TrackComment } from '../model/types';
-import { HTTP_METHODS_TYPE } from '@commonTypes/HttpMethods';
+import { jsonToTrackComment } from '../lib';
+import { TrackComment } from '../model';
+import { HTTP_METHODS_TYPE } from '../../../shared/types/HttpMethods';
 
 type CreateTrackCommentType = (data: {
   trackId: TrackComment['id'];

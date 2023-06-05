@@ -4,4 +4,4 @@ export { default as getOneTrack } from './getOneTrack';
 export { default as deleteTrack } from './deleteTrack';
 export { default as addTrackListen } from './addTrackListen';
 
-export * from './types';
+export type { CreateTrackDtoType, GetTrackDtoType } from './types';

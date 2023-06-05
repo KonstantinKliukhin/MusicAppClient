@@ -1,10 +1,10 @@
 import { CreateTrackDtoType, GetTrackDtoType } from './types';
 import jsonToTrack from '../lib/jsonToTrack';
 import { Track } from '../model';
-import urlParser from '../../../../old/shared/utils/UrlParser';
-import { HTTP_METHODS_TYPE } from '@commonTypes/HttpMethods';
+import { HTTP_METHODS_TYPE } from '../../../shared/types';
 import { ROUTES } from '../../../../routes';
 import { enhancedFetch } from '../../../shared/api';
+import { urlParser } from '../../../shared/lib';
 
 const createTrack = async (track: CreateTrackDtoType): Promise<Track> => {
   const formData = new FormData();
@@ -21,7 +21,7 @@ const createTrack = async (track: CreateTrackDtoType): Promise<Track> => {
 
   const data: GetTrackDtoType = await res.json();
 
-  return jsonToTrack(data, urlParser);
+  return jsonToTrack(data);
 };
 
 export default createTrack;

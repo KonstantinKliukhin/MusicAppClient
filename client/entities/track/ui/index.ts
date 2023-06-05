@@ -1,1 +1,2 @@
-export { TrackCard } from './TrackCard/TrackCard';
+export { BigTrackInfo } from './BigTrackInfo/BigTrackInfo';
+export { TrackListItemCard } from './TrackListItemCard/TrackListItemCard';

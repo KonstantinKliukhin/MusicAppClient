@@ -3,11 +3,10 @@
 import React, { FC, useCallback } from 'react';
 import styles from './AudioInput.module.scss';
 import AddIcon from '@mui/icons-material/Add';
-import { withFormikFileInputHOC } from '../../../lib';
+import { ACCEPTED_AUDIO_TYPES, ACCEPTED_AUDIO_TYPES_STRING, withFormikFileInputHOC } from '../../../lib';
 import FileInput from '../FileInput';
-import useFileInputDrag from '../../../../../old/hooks/useFileInputDrag';
+import { useFileInputDrag } from '../../../lib';
 import cs from 'classnames';
-import constants from '@constants';
 import CloudDoneIcon from '@mui/icons-material/CloudDone';
 
 type PropsType = {
@@ -18,7 +17,7 @@ type PropsType = {
 const AudioInput: FC<PropsType> = (props) => {
   const setFile = useCallback(
     (file: File) => {
-      if (!constants.ACCEPTED_AUDIO_TYPES.includes(file.type)) return;
+      if (!ACCEPTED_AUDIO_TYPES.includes(file.type)) return;
       props.setValue(file);
     },
     [props.setValue],
@@ -26,7 +25,7 @@ const AudioInput: FC<PropsType> = (props) => {
   const { drag, ...dragHandlers } = useFileInputDrag(setFile);
 
   return (
-    <FileInput accept={constants.ACCEPTED_AUDIO_TYPES_STRING} setFile={setFile}>
+    <FileInput accept={ACCEPTED_AUDIO_TYPES_STRING} setFile={setFile}>
       {(onClick) => {
         return (
           <div

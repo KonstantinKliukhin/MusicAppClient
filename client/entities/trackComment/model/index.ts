@@ -1,1 +1,1 @@
-export * from './types';
+export { TrackComment } from './types';

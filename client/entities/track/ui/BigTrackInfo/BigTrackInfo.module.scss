@@ -1,0 +1,33 @@
+.root {
+  @apply flex gap-x-3;
+
+  .image {
+    @apply object-cover rounded-md;
+    width: 232px;
+    height: 232px;
+  }
+
+  .texts {
+    @apply flex flex-col justify-between pt-2 pb-2;
+  }
+
+  .type {
+    @apply text-sm text-black;
+    @apply dark:text-white;
+  }
+
+  .name {
+    @apply text-7xl text-black;
+    @apply dark:text-white;
+  }
+
+  .metaInfo {
+    @apply text-lg text-black;
+    @apply dark:text-white;
+  }
+
+  .duration {
+    @apply text-lg text-gray-600 inline;
+    @apply dark:text-gray-200;
+  }
+}

@@ -1,0 +1,1 @@
+export {GreenPageLoader as default} from '../client/app'

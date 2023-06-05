@@ -9,4 +9,6 @@ export type GetTrackDtoType = {
   picture: string;
   audio: string;
   comments: TrackCommentDTOType[];
+  createdAt: string;
+  updatedAt: string;
 };

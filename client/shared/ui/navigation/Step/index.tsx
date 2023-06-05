@@ -10,6 +10,7 @@ type PropsType = {
   canGo: boolean;
   link: string;
   linkText: string | number;
+  onClick?: () => void;
 };
 
 const Step: FC<PropsType> = (props) => {
@@ -21,7 +22,7 @@ const Step: FC<PropsType> = (props) => {
       })}
     >
       {props.canGo ? (
-        <Link className={styles.link} href={props.link}>
+        <Link className={styles.link} href={props.link} onClick={() => props.onClick && props.onClick()}>
           {props.linkText}
         </Link>
       ) : (

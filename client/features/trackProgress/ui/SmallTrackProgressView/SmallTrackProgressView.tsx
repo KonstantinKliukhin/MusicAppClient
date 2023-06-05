@@ -1,31 +1,27 @@
-import React, { FC, useMemo } from 'react';
-import utils from '@utils';
-import { $currentTime, $duration, useIsCurrentTrack } from '../../../../entities/player';
-import { Track } from '../../../../entities/track/model';
-import { useUnit } from 'effector-react';
+"use client"
+
+import React, { FC, useMemo } from 'react'
+import { $currentTime, $duration, useIsCurrentTrack } from '../../../../entities/player'
+import { Track } from '../../../../entities/track'
+import { useUnit } from 'effector-react'
+import moment from 'moment';
 
 type PropsType = {
   trackId: Track['id'];
 };
 
-const SmallTrackProgressView: FC<PropsType> = (props) => {
-  const [currentTime, duration] = useUnit([$currentTime, $duration]);
-  const isCurrentTrack = useIsCurrentTrack(props.trackId);
+export const SmallTrackProgressView: FC<PropsType> = (props) => {
+  const [currentTime, duration] = useUnit([$currentTime, $duration])
+  const isCurrentTrack = useIsCurrentTrack(props.trackId)
 
-  const currentTimeView: string | null = useMemo(
-    () => utils.getTimeDueSeconds(currentTime),
-    [currentTime],
-  );
+  const currentTimeView: string | null = useMemo(() => moment(currentTime * 1000).format('mm:ss'), [currentTime])
+  const durationView: string | null = useMemo(() => moment(duration * 1000).format('mm:ss'), [duration])
 
-  const durationView: string | null = useMemo(() => utils.getTimeDueSeconds(duration), [duration]);
-
-  if (!isCurrentTrack) return null;
+  if (!isCurrentTrack) return null
 
   return (
     <div>
       {currentTimeView} / {durationView}
     </div>
-  );
-};
-
-export default SmallTrackProgressView;
+  )
+}

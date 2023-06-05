@@ -1,0 +1,13 @@
+.textWrapper {
+  @apply flex flex-col gap-y-2 justify-center;
+
+  .trackName {
+    @apply text-lg max-w-full overflow-x-hidden whitespace-nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .artistName {
+    @apply text-sm max-w-full overflow-x-hidden whitespace-nowrap;
+    text-overflow: ellipsis;
+  }
+}

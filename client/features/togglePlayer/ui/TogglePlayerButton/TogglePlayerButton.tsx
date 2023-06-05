@@ -4,18 +4,32 @@ import React, { FC } from 'react';
 import IconButton from '../../../../shared/ui/buttons/IconButton';
 import { Pause, PlayArrow } from '@mui/icons-material';
 import { useUnit } from 'effector-react';
-import { $pause, playEvent } from '../../../../entities/player';
+import { $activeTrack, $pause, pauseEvent, playEvent, setActiveTrackEvent } from '../../../../entities/player';
+import { Track } from '../../../../entities/track';
 
 type PropsType = {
   className?: string;
+  track: Track | null;
 };
 
 export const TogglePlayerButton: FC<PropsType> = (props) => {
-  const [isPaused, play] = useUnit([$pause, playEvent]);
+  const [isPaused, activeTrack, play, setActiveTrack, pause] = useUnit([$pause, $activeTrack, playEvent, setActiveTrackEvent, pauseEvent]);
+
+  const isCurrentTrack = activeTrack?.id === props.track?.id;
+
+  const onToggle = () => {
+    if (!props.track) return;
+    if (!isCurrentTrack || !activeTrack) {
+      setActiveTrack(props.track);
+      play();
+      return;
+    }
+    isPaused ? play() : pause();
+  };
 
   return (
-    <IconButton className={props.className} onClick={() => play()}>
-      {isPaused ? <PlayArrow /> : <Pause />}
+    <IconButton className={props.className} onClick={onToggle}>
+      {isPaused || !isCurrentTrack ? <PlayArrow /> : <Pause />}
     </IconButton>
   );
 };

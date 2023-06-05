@@ -5,11 +5,10 @@ import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import styles from './ImageInput.module.scss';
 import Image from 'next/image';
 import * as process from 'process';
-import { withFormikFileInputHOC } from '../../../lib';
+import { ACCEPTED_IMAGE_TYPES, ACCEPTED_IMAGE_TYPES_STRING, withFormikFileInputHOC } from '../../../lib';
 import FileInput from '../FileInput';
 import cs from 'classnames';
-import useFileInputDrag from '../../../../../old/hooks/useFileInputDrag';
-import constants from '@constants';
+import { useFileInputDrag } from '../../../lib';
 
 type PropsType = {
   value: File | null;
@@ -19,7 +18,7 @@ type PropsType = {
 const ImageInput: FC<PropsType> = (props) => {
   const setFile = useCallback(
     (file: File) => {
-      if (!constants.ACCEPTED_IMAGE_TYPES.includes(file.type)) return;
+      if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) return;
       props.setValue(file);
     },
     [props.setValue],
@@ -34,7 +33,7 @@ const ImageInput: FC<PropsType> = (props) => {
   }, [props.value]);
 
   return (
-    <FileInput accept={constants.ACCEPTED_IMAGE_TYPES_STRING} setFile={setFile}>
+    <FileInput accept={ACCEPTED_IMAGE_TYPES_STRING} setFile={setFile}>
       {(onClick) => {
         return (
           <div
@@ -43,7 +42,8 @@ const ImageInput: FC<PropsType> = (props) => {
             {...dragHandlers}
           >
             {url ? (
-              <Image className={styles.image} src={url} alt={props.value?.name ?? 'file preview'} />
+              <Image className={styles.image} src={url} alt={props.value?.name ?? 'file preview'} width={1000}
+                     height={1000} />
             ) : (
               <div className={styles.emptyContentWrapper}>
                 <AddPhotoAlternateIcon className={styles.addIcon} />

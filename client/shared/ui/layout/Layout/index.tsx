@@ -8,11 +8,13 @@ type PropsType = PropsWithChildren & {
 
 const Layout: FC<PropsType> = (props) => {
   return (
-    <>
+    <html lang='en'>
+      <body>
       {props.headerSlot}
       <main className={styles.container}>{props.children}</main>
       {props.bottomSlot}
-    </>
+      </body>
+    </html>
   );
 };
 

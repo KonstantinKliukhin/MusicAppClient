@@ -1,4 +1,8 @@
-.root {
+.root, .root[type='submit'] {
   @apply px-5 py-2.5 bg-fuchsia-400 text-lg rounded-md shadow-md;
   @apply dark:bg-fuchsia-800 text-white;
+
+  &.disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
 }

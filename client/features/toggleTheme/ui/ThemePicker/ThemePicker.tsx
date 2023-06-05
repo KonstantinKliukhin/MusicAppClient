@@ -3,12 +3,24 @@
 import React, { FC, MouseEventHandler, useEffect, useMemo, useRef, useState } from 'react';
 import { LightMode } from '@mui/icons-material';
 import styles from './ThemePicker.module.scss';
-import { THEME_TYPE } from '@commonTypes/Theme';
+import { THEME_TYPE } from '../../../../shared/types/Theme';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { LOCAL_STORAGE_KEY_THEME } from '../../../../shared/lib';
 
 export const ThemePicker: FC = () => {
   const domRef = useRef<HTMLElement | null>(null);
   const [currentTheme, setCurrentTheme] = useState<THEME_TYPE>(THEME_TYPE.LIGHT);
+
+  useEffect(function getSavedTheme() {
+    const savedTheme = localStorage.getItem(LOCAL_STORAGE_KEY_THEME);
+    if (savedTheme === THEME_TYPE.LIGHT || savedTheme === THEME_TYPE.DARK) {
+      setCurrentTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(function updateSavedTheme() {
+    localStorage.setItem(LOCAL_STORAGE_KEY_THEME, currentTheme);
+  }, [currentTheme]);
 
   useEffect(() => {
     if (!process.browser) return;
@@ -36,9 +48,13 @@ export const ThemePicker: FC = () => {
 
   const isDarkMode = useMemo(() => currentTheme === THEME_TYPE.DARK, [currentTheme]);
 
-  return isDarkMode ? (
-    <DarkModeIcon onClick={onThemeIconClick} />
-  ) : (
-    <LightMode onClick={onThemeIconClick} className={styles.root} />
+  return (
+    <button>
+      {isDarkMode ? (
+        <DarkModeIcon onClick={onThemeIconClick} />
+      ) : (
+        <LightMode onClick={onThemeIconClick} className={styles.root} />
+      )}
+    </button>
   );
 };

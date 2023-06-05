@@ -5,6 +5,9 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
+  serverRuntimeConfig: {
+    isServerSide: true,
+  },
   experimental: {
     appDir: true,
     serverComponentsExternalPackages: [
@@ -16,6 +19,7 @@ const nextConfig = {
       'webpack',
       'eslint',
     ],
+    swcPlugins: [["next-superjson-plugin", {}]],
   },
   // tailwind dark theme supporting in sass modules
   webpack: (config) => {
