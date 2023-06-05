@@ -1,0 +1,1 @@
+export { generateTrackPageMetadata } from './trackPageMetaData';

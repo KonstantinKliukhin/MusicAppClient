@@ -1,0 +1,16 @@
+.root {
+  @apply bg-white rounded-md shadow-md w-full h-full;
+  @apply dark:bg-fuchsia-700 dark:shadow-[0px_4px_9px_rgba(46,189,89,1)];
+  .header {
+    @apply border-b-2 border-b-fuchsia-300 flex justify-center p-4;
+
+    .headerTitle {
+      @apply text-xl text-black;
+      @apply dark:text-white;
+    }
+  }
+
+  .body {
+    @apply p-4;
+  }
+}

@@ -1,0 +1,28 @@
+export {
+  $duration,
+  $currentTime,
+  setCurrentTimeEvent,
+  $pause,
+  pauseEvent,
+  playEvent,
+  clearDurationEvent,
+  durationSetEvent,
+  setActiveTrackEvent,
+  $activeTrack,
+  useIsCurrentTrack,
+  setVolumeActionEvent,
+  $volume,
+  $nextTrack,
+  $prevTrack,
+  playPrevTrackEvent,
+  playNextTrackEvent,
+  trackEndedEvent,
+  tracksQueueSetNextEvent,
+  $isActiveTrackInTracksQueue,
+  $activeTrackExist,
+  tracksQueueSetQueueEvent,
+  currentTimeTickEvent,
+  togglePlayerEvent,
+} from './model';
+
+export { StaticBottomPlayerLayout, ActiveTrackTextInfo } from './ui';

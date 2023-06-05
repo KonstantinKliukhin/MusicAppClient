@@ -1,0 +1,55 @@
+.root {
+  @apply bg-transparent py-3 flex items-center gap-x-2 w-full relative;
+
+  &:hover .rangeInput::-webkit-slider-thumb {
+    @apply block h-3 w-3 bg-rose-900 rounded-full;
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    margin-top: -0.25rem;
+  }
+
+  &:hover .rangeInput::-moz-range-thumb {
+    @apply block h-3 w-3 bg-rose-900 rounded-full;
+    border: none; /*Removes extra border that FF applies*/
+    margin-top: -0.25rem;
+  }
+
+  .rangeInput {
+    @apply w-full bg-gray-400 bg-gradient-to-r from-rose-300 via-rose-600 to-rose-900;
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    /***** Track Styles *****/
+    /***** Chrome, Safari, Opera, and Edge Chromium *****/
+    &::-webkit-slider-runnable-track {
+      @apply h-1 bg-transparent;
+    }
+
+    &::-webkit-slider-thumb {
+      display: none;
+    }
+
+    &:hover::-webkit-slider-thumb {
+      @apply block h-3 w-3 bg-rose-900 rounded-full;
+      -webkit-appearance: none;
+      /* Override default look */
+      appearance: none;
+      margin-top: -0.25rem;
+    }
+
+    /******** Firefox ********/
+    &::-moz-range-track {
+      @apply bg-teal-400 h-1;
+    }
+
+    &::-moz-range-thumb {
+      display: none;
+    }
+
+    &:hover::-moz-range-thumb {
+      @apply block h-3 w-3 bg-rose-900 rounded-full;
+      border: none; /*Removes extra border that FF applies*/
+      margin-top: -0.25rem;
+    }
+  }
+}

@@ -1,3 +1,1 @@
-import GreenPageLoader from '@uiComponents/loaders/GreenPageLoader';
-
-export default GreenPageLoader;
+export {GreenPageLoader as default} from '../client/app'

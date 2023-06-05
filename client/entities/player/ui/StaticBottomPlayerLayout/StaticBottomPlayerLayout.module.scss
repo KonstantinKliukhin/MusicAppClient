@@ -1,0 +1,25 @@
+.root {
+  @apply fixed h-24 bottom-0 flex justify-center w-screen;
+
+  .player {
+    @apply relative w-full flex items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
+
+    .trackProgressWrapper {
+      @apply absolute w-screen;
+      top: -0.75rem;
+    }
+
+    .contentWrapper {
+      @apply grid gap-x-7 w-full px-6;
+      grid-template-columns: auto 1fr auto;
+
+      .manageTrackButtonsWrapper {
+        @apply flex gap-x-4 items-center;
+      }
+
+      .right {
+        @apply self-center;
+      }
+    }
+  }
+}
