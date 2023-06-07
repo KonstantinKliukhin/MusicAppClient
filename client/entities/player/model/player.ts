@@ -1,8 +1,8 @@
-"use client"
+'use client';
 
 import { combine, createEvent, createStore, sample } from 'effector/compat';
+import { findById, findIndexById } from '@shared/lib';
 import { Track } from '../../track';
-import { findById, findIndexById } from '../../../shared/lib';
 
 export const setActiveTrackEvent = createEvent<Track | null>();
 export const setVolumeActionEvent = createEvent<number>();
@@ -18,25 +18,24 @@ export const tracksQueueSetNextEvent = createEvent<Track>();
 export const trackEndedEvent = createEvent();
 export const setCurrentTimeEvent = createEvent<number>();
 export const currentTimeTickEvent = createEvent<number>();
-``
+
 const $tracksQueue = createStore<Track[]>([])
   .on(tracksQueueSetQueueEvent, (state, tracks) => tracks)
   .on(tracksQueueSetNextEvent, (state, track) => [track, ...state]);
 
-export const $activeTrack = createStore<null | Track>(null)
-  .on(
-    setActiveTrackEvent,
-    (_, track) => track,
-  );
+export const $activeTrack = createStore<null | Track>(null).on(
+  setActiveTrackEvent,
+  (_, track) => track,
+);
 
-export const $activeTrackExist = $activeTrack.map(track => Boolean(track));
-export const $isActiveTrackInTracksQueue = combine([$tracksQueue, $activeTrack],
+export const $activeTrackExist = $activeTrack.map((track) => Boolean(track));
+export const $isActiveTrackInTracksQueue = combine(
+  [$tracksQueue, $activeTrack],
   ([tracksQueue, activeTrack]) => {
     if (!activeTrack) return false;
     return Boolean(findById(tracksQueue, activeTrack));
-  });
-
-
+  },
+);
 
 export const $volume = createStore<number>(80).on(setVolumeActionEvent, (_, volume) => volume);
 
@@ -53,24 +52,28 @@ export const $pause = createStore<boolean>(true)
   .on(pauseEvent, () => true)
   .on(togglePlayerEvent, (state) => !state);
 
-export const $prevTrack = combine([$activeTrack, $tracksQueue], ([activeTrack, tracksQueue]): Track | null => {
-  if (!tracksQueue.length || tracksQueue.length === 1) return null;
+export const $prevTrack = combine(
+  [$activeTrack, $tracksQueue],
+  ([activeTrack, tracksQueue]): Track | null => {
+    if (!tracksQueue.length || tracksQueue.length === 1) return null;
 
-  const firstTrackInQueue = tracksQueue[0];
+    const firstTrackInQueue = tracksQueue[0];
 
-  if (!activeTrack) return firstTrackInQueue;
+    if (!activeTrack) return firstTrackInQueue;
 
-  const currentTrackIndexInQueue = findIndexById(tracksQueue, activeTrack);
-  if (currentTrackIndexInQueue === -1) return firstTrackInQueue;
+    const currentTrackIndexInQueue = findIndexById(tracksQueue, activeTrack);
+    if (currentTrackIndexInQueue === -1) return firstTrackInQueue;
 
-  const lastTrackInQueue = tracksQueue[tracksQueue.length - 1];
+    const lastTrackInQueue = tracksQueue[tracksQueue.length - 1];
 
-  if (currentTrackIndexInQueue === 0) return lastTrackInQueue;
+    if (currentTrackIndexInQueue === 0) return lastTrackInQueue;
 
-  return tracksQueue[currentTrackIndexInQueue - 1];
-});
+    return tracksQueue[currentTrackIndexInQueue - 1];
+  },
+);
 
-export const $nextTrack = combine([$activeTrack, $tracksQueue],
+export const $nextTrack = combine(
+  [$activeTrack, $tracksQueue],
   ([activeTrack, tracksQueue]): Track | null => {
     if (!tracksQueue.length || tracksQueue.length === 1) return null;
 
@@ -85,7 +88,8 @@ export const $nextTrack = combine([$activeTrack, $tracksQueue],
     if (currentTrackIndexInQueue + 1 === tracksQueue.length) return firstTrackInQueue;
 
     return tracksQueue[currentTrackIndexInQueue + 1];
-  });
+  },
+);
 
 sample({
   clock: $currentTime,
@@ -109,4 +113,3 @@ sample({
   fn: ({ prevTrack }) => prevTrack,
   target: setActiveTrackEvent,
 });
-

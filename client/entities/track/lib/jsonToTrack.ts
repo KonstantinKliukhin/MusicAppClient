@@ -1,9 +1,9 @@
-import { Track } from '../model';
+import { urlParser } from '@shared/lib';
 import { GetTrackDtoType } from '../api';
-import { jsonToTrackComment } from '../../trackComment/lib';
-import { urlParser } from '../../../shared/lib';
+import { jsonToTrackComment } from '../lib';
+import { Track } from '../model';
 
-function jsonToTrack(json: GetTrackDtoType): Track {
+export function jsonToTrack(json: GetTrackDtoType): Track {
   return new Track(
     json.id,
     json.name,
@@ -17,5 +17,3 @@ function jsonToTrack(json: GetTrackDtoType): Track {
     json.updatedAt,
   );
 }
-
-export default jsonToTrack;

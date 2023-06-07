@@ -1,6 +1,7 @@
 // file for exporting all to next js
 
 // layout
+
 export { AppRoot } from './appRoot';
 export { TrackCreation } from '../processes/trackCreation';
 export { AuthRoot } from './auth';
@@ -22,5 +23,5 @@ export { SignInPage } from '../pages/signIn';
 export { SignUpPage } from '../pages/signUp';
 
 // auth
-export { authMiddlewareConfig, authOptions } from './auth';
-
+export { authMiddlewareConfig } from './auth';
+export { authConfig } from '@entities/auth';

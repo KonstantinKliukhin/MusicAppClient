@@ -1,0 +1,1 @@
+export type { UserResponseDtoType } from './types/userResponse.dto';

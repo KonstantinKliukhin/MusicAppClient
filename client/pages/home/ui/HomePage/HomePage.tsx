@@ -1,5 +1,5 @@
-import styles from './HomePage.module.scss';
 import { NextPage } from 'next';
+import styles from './HomePage.module.scss';
 
 export const HomePage: NextPage = () => {
   return (

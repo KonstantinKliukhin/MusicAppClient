@@ -1,6 +1,6 @@
 import React from 'react';
-import { FormikTextInput, PinkButton, VerticalFormLayout, WhiteRoundedCard } from '../../../../shared/ui';
 import { SignUpForm } from '../../../../features/auth';
+import { FormikTextInput, PinkButton, VerticalFormLayout, WhiteRoundedCard } from '../../../../shared/ui';
 
 export function SignUpPage() {
   return (

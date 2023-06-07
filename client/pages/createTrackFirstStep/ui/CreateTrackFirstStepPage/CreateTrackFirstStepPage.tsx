@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { ROUTES } from '../../../../../routes';
-import { FormikTextAreaInput, FormikTextInput, WhiteRoundedCard } from '../../../../shared/ui';
-import UploadTrackButtonsContainer from '../../../../shared/ui/containers/UploadTrackButtonsContainer';
+import { ROUTES } from '@shared/config/routes';
 import { TrackCreationNavigationButton } from '../../../../features/trackCreationNavigation';
+import { FormikTextAreaInput, FormikTextInput, WhiteRoundedCard } from '../../../../shared/ui';
+import EndListContainer from '@shared/ui/containers/EndListContainer/EndListContainer';
 
 export const CreateTrackFirstStepPage: FC = () => {
   return (
@@ -18,11 +18,11 @@ export const CreateTrackFirstStepPage: FC = () => {
       <WhiteRoundedCard title={'Track Text'}>
         <FormikTextAreaInput name={'text'} />
       </WhiteRoundedCard>
-      <UploadTrackButtonsContainer>
+      <EndListContainer>
         <TrackCreationNavigationButton step={1} type={'next'} link={ROUTES.CREATE_TRACK_SECOND_STEP}>
           Next
         </TrackCreationNavigationButton>
-      </UploadTrackButtonsContainer>
+      </EndListContainer>
     </>
   );
 };

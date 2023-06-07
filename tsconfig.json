@@ -26,34 +26,25 @@
     "baseUrl": ".",
     "paths": {
       "@entities/*": [
-        "old/types/entities/*"
+        "client/entities/*"
       ],
-      "@commonTypes/*": [
-        "old/types/common/*"
+      "@shared/*": [
+        "client/shared/*"
       ],
-      "@uiComponents/*": [
-        "old/components/ui/*"
+      "@features/*": [
+        "client/features/*"
       ],
-      "@bzComponents/*": [
-        "old/components/business/*"
+      "@widgets/*": [
+        "client/widgets/*"
       ],
-      "@pageComponents/*": [
-        "old/components/pages/*"
+      "@pages/*": [
+        "client/pages/*"
       ],
-      "@services/*": [
-        "old/services/*"
-      ],
-      "@hooks/*": [
-        "old/hooks/*"
+      "@app/*": [
+        "client/app/*"
       ],
       "@images/*": [
         "assets/images/*"
-      ],
-      "@utils": [
-        "old/shared/utils"
-      ],
-      "@constants": [
-        "old/shared/constants"
       ]
     }
   },

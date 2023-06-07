@@ -1,1 +1,0 @@
-export const authMiddlewareConfig =  { matcher: ['/tracks/:path*'] };

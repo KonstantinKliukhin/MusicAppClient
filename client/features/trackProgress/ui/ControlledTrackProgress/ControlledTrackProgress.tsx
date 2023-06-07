@@ -1,10 +1,10 @@
 'use client';
 
-import styles from './ControlledTrackProgress.module.scss';
-import React, { FC } from 'react';
 import { useUnit } from 'effector-react';
+import React, { FC } from 'react';
 import { $currentTime, $duration, setCurrentTimeEvent } from '../../../../entities/player';
 import { getProgressInPercentages } from '../../lib';
+import styles from './ControlledTrackProgress.module.scss';
 
 export const ControlledTrackProgress: FC = () => {
   const [duration, currentTime, setCurrentTime] = useUnit([

@@ -1,6 +1,21 @@
 {
   "extends": [
     "next/core-web-vitals",
+    "@feature-sliced",
     "prettier"
-  ]
+  ],
+  "rules": {
+    "import/no-internal-modules": 1,
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": ["../*"],
+            "message": "Usage of relative parent imports is not allowed."
+          }
+        ]
+      }
+    ]
+  }
 }

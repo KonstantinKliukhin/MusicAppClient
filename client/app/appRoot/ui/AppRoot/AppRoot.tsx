@@ -1,6 +1,6 @@
+import { Session } from 'next-auth';
 import React, { PropsWithChildren } from 'react';
 import { AuthProvider } from '../../../auth';
-import { Session } from 'next-auth';
 import { BaseLayout } from '../../../layouts';
 
 type PropsType = PropsWithChildren & {

@@ -1,1 +1,1 @@
-export { audio, $audioLoaded } from './audio';
+export { useAudio, $audioLoaded } from './audio';

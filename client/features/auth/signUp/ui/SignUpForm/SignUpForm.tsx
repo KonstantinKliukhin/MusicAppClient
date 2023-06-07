@@ -1,9 +1,9 @@
 'use client';
 
-import React, { FC, PropsWithChildren } from 'react';
 import { Form, Formik } from 'formik';
-import styles from './SignUpForm.module.scss';
+import React, { FC, PropsWithChildren } from 'react';
 import { signUpFormInitialValues, signUpValidationSchema, useSignInSubmit } from '../../model';
+import styles from './SignUpForm.module.scss';
 
 export const SignUpForm: FC<PropsWithChildren> = props => {
   const onSubmit = useSignInSubmit();

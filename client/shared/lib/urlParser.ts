@@ -1,6 +1,6 @@
-import { envConfig } from './envConfig';
+import { envConfig } from '@shared/config';
 
-class UrlParser {
+export class UrlParser {
   private readonly prefix: string;
 
   constructor(prefix: string) {

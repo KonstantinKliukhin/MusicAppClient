@@ -1,9 +1,8 @@
 export {
   tracksCreateOneEffect,
   tracksDeleteOneEffect,
-  $track,
   tracksSetEvent,
-  tracksSetOneEvent,
   $trackList,
 } from './trackList';
-export { Track } from './types';
+export { Track } from './types/Track';
+export { TrackComment } from './types/TrackComment';

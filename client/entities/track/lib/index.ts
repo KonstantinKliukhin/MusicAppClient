@@ -1,1 +1,2 @@
-export { default as jsonToTrack } from './jsonToTrack';
+export { jsonToTrack } from './jsonToTrack';
+export { jsonToTrackComment } from './jsonToTrackComment';

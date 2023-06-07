@@ -1,11 +1,11 @@
 "use client"
 
-import React, { FC } from 'react';
-import { IconButton } from '../../../../shared/ui';
+import { SkipPrevious } from '@mui/icons-material';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import { useUnit } from 'effector-react';
+import React, { FC } from 'react';
 import { playNextTrackEvent, playPrevTrackEvent } from '../../../../entities/player';
-import { SkipPrevious } from '@mui/icons-material';
+import { IconButton } from '../../../../shared/ui';
 
 type PropsType = {
   className?: string;

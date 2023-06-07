@@ -1,8 +1,8 @@
 'use client';
-import React, { FC } from 'react';
-import { PinkButton } from '../../../../../shared/ui';
 import { signIn } from 'next-auth/react';
+import React, { FC } from 'react';
 import { useIsAuthenticated } from '../../../../../entities/auth';
+import { PinkButton } from '../../../../../shared/ui';
 
 export const SignInButton: FC = () => {
   const isAuthenticated = useIsAuthenticated();

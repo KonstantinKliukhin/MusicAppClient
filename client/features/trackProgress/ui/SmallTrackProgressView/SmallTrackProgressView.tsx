@@ -1,10 +1,10 @@
 "use client"
 
+import { useUnit } from 'effector-react'
+import moment from 'moment';
 import React, { FC, useMemo } from 'react'
 import { $currentTime, $duration, useIsCurrentTrack } from '../../../../entities/player'
 import { Track } from '../../../../entities/track'
-import { useUnit } from 'effector-react'
-import moment from 'moment';
 
 type PropsType = {
   trackId: Track['id'];

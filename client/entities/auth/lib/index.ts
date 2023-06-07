@@ -1,1 +1,1 @@
-export { userToSessionUser } from './userToSessionUser';
+export { jsonToSessionUser } from './jsonToSessionUser';

@@ -1,16 +1,15 @@
-import { CreateTrackDtoType, GetTrackDtoType } from './types';
-import jsonToTrack from '../lib/jsonToTrack';
+import { enhancedFetch, HTTP_METHODS_TYPE } from '@shared/api';
+import { ROUTES } from '@shared/config';
+import { jsonToTrack } from '../lib';
 import { Track } from '../model';
-import { HTTP_METHODS_TYPE } from '../../../shared/types';
-import { ROUTES } from '../../../../routes';
-import { enhancedFetch } from '../../../shared/api';
-import { urlParser } from '../../../shared/lib';
+import { CreateTrackDtoType } from './types/CreateTrack.dto';
+import { GetTrackDtoType } from './types/GetTrack.dto';
 
-const createTrack = async (track: CreateTrackDtoType): Promise<Track> => {
+export const createTrack = async (track: CreateTrackDtoType): Promise<Track> => {
   const formData = new FormData();
 
   Object.entries(track).forEach(([field, value]) => {
-    formData.append(field, value);
+    formData.append(field, value as CreateTrackDtoType[keyof CreateTrackDtoType]);
   });
 
   const res = await enhancedFetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks`, {
@@ -23,5 +22,3 @@ const createTrack = async (track: CreateTrackDtoType): Promise<Track> => {
 
   return jsonToTrack(data);
 };
-
-export default createTrack;

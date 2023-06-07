@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { ActiveTrackTextInfo, StaticBottomPlayerLayout } from '../../../../entities/player';
 import { AudioManager } from '../../../../features/audioManager';
 import { PlayNextTrackButton, PlayPrevTrackButton } from '../../../../features/changeActiveTrack';
-import { ToggleCurrentTrackButton } from '../../../../features/togglePlayer';
 import { VolumeInput } from '../../../../features/setVolume';
+import { ToggleCurrentTrackButton } from '../../../../features/togglePlayer';
 import { ControlledTrackProgress } from '../../../../features/trackProgress';
 import styles from './StaticBottomPlayer.module.scss';
 

@@ -1,8 +1,8 @@
 "use client"
-import React, { FC } from 'react';
-import styles from './ActiveTrackTextInfo.module.scss';
 import { useUnit } from 'effector-react/compat';
+import React, { FC } from 'react';
 import { $activeTrack } from '../../model';
+import styles from './ActiveTrackTextInfo.module.scss';
 
 export const ActiveTrackTextInfo: FC = () => {
   const activeTrack = useUnit($activeTrack);

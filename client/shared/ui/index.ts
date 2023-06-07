@@ -1,26 +1,28 @@
-export { default as GradientButton } from './buttons/GradientButton';
-export { default as IconButton } from './buttons/IconButton';
-export { default as PinkButton } from './buttons/PinkButton';
+/* eslint-disable import/no-internal-modules */
+// disable eslint, because it is public api of ui segment
+export { GradientButton } from './buttons/GradientButton/GradientButton';
+export { IconButton } from './buttons/IconButton/IconButton';
+export { PinkButton } from './buttons/PinkButton/PinkButton';
 
-export { default as WhiteRoundedCard } from './cards/WhiteRoundedCard';
+export { WhiteRoundedCard } from './cards/WhiteRoundedCard/WhiteRoundedCard';
 
-export { default as Container } from './containers/Container';
-export {} from './containers/UploadTrackButtonsContainer'
+export { Container } from './containers/Container/Container';
+export { EndListContainer } from '@shared/ui/containers/EndListContainer/EndListContainer';
 
-export { default as VerticalFormLayout } from './forms/VerticalFormLayout';
+export { VerticalFormLayout } from './forms/VerticalFormLayout/VerticalFormLayout';
 
 export { BlueRangeInput } from './inputs/BlueRangeInput/BlueRangeInput';
-export { default as TextInput, FormikTextInput } from './inputs/TextInput';
-export { default as TextAreaInput, FormikTextAreaInput } from './inputs/TextAreaInput';
-export { default as AudioInput, FormikAudioInput } from './inputs/AudioInput';
-export { default as ImageInput, FormikImageInput } from './inputs/ImageInput';
-export { default as FileInput } from './inputs/FileInput';
+export { TextInput, FormikTextInput } from './inputs/TextInput/TextInput';
+export { TextAreaInput, FormikTextAreaInput } from './inputs/TextAreaInput/TextAreaInput';
+export { AudioInput, FormikAudioInput } from './inputs/AudioInput/AudioInput';
+export { ImageInput, FormikImageInput } from './inputs/ImageInput/ImageInput';
+export { FileInput } from './inputs/FileInput/FileInput';
 
-export { default as GreenPageLoader } from './loaders/GreenPageLoader';
+export { GreenPageLoader } from './loaders/GreenPageLoader/GreenPageLoader';
 
-export { default as NavLink } from './navigation/NavLink/NavLink';
-export { default as Stepper } from './navigation/Stepper';
-export { default as Step } from './navigation/Step';
+export { NavLink } from './navigation/NavLink/NavLink';
+export { Stepper } from './navigation/Stepper/Stepper';
+export { Step } from './navigation/Step/Step';
 
 export { Header } from './layout/Header/Header';
-export { default as Layout } from './layout/Layout/index';
+export { Layout } from './layout/Layout/Layout';

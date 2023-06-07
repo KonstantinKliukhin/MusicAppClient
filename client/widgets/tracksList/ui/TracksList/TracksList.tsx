@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from 'react';
-import styles from './TracksList.module.scss';
 import { Track, TrackListItemCard } from '../../../../entities/track';
+import styles from './TracksList.module.scss';
 
 type PropsType = {
   tracks: Track[];

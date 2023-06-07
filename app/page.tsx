@@ -1,4 +1,4 @@
-import { HomePage, homePageMetadata } from '../client/pages/home';
+import { HomePage, homePageMetadata } from '@pages/home';
 
 export const metadata = homePageMetadata;
 export default HomePage;

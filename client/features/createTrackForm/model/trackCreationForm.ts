@@ -1,12 +1,12 @@
 "use client"
 
+import { useUnit } from 'effector-react/compat';
+import { FormikHelpers, useFormikContext } from 'formik';
 import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
-import { FormikHelpers, useFormikContext } from 'formik';
-import { ROUTES } from '../../../../routes';
-import { useUnit } from 'effector-react/compat';
-import { tracksCreateOneEffect } from '../../../entities/track';
 import * as Yup from 'yup';
+import { ROUTES } from '@shared/config/routes';
+import { tracksCreateOneEffect } from '../../../entities/track';
 import { CreateTrackFormikType } from './types';
 
 

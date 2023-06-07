@@ -1,10 +1,10 @@
 'use client';
 
-import React, { FC } from 'react';
+import { Pause, PlayArrow } from '@mui/icons-material';
 import { useUnit } from 'effector-react';
+import React, { FC } from 'react';
 import { $pause, togglePlayerEvent } from '../../../../entities/player';
 import { IconButton } from '../../../../shared/ui';
-import { Pause, PlayArrow } from '@mui/icons-material';
 
 type PropsType = {
   className?: string;

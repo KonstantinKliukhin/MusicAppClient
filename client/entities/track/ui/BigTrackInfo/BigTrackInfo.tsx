@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import styles from './BigTrackInfo.module.scss';
-import { Track } from '../../model';
-import Image from 'next/image';
 import moment from 'moment';
+import Image from 'next/image';
+import React, { FC } from 'react';
+import { Track } from '../../model';
+import styles from './BigTrackInfo.module.scss';
 
 type PropsType = {
   track: Track

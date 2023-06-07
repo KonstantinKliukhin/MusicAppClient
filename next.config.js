@@ -21,6 +21,9 @@ const nextConfig = {
     ],
     swcPlugins: [["next-superjson-plugin", {}]],
   },
+  eslint: {
+    dirs: ["client", "app", "pages"]
+  },
   // tailwind dark theme supporting in sass modules
   webpack: (config) => {
     // Find the base rule that contains nested rules (which contains css-loader)

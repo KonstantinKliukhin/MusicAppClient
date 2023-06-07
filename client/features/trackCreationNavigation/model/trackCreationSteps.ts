@@ -1,30 +1,26 @@
 'use client';
 import { createEvent, createStore } from 'effector/compat';
 import { useUnit, useStoreMap } from 'effector-react';
-import { useEffect } from 'react';
 import { useFormikContext } from 'formik';
+import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
+import { useEffect } from 'react';
 import { CreateTrackFormikType } from '../../createTrackForm/model';
 import { pagesFieldsMap, stepsConfig } from './constants';
-import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
-
 
 export const changeCurrentStepEvent = createEvent<number>();
-// export const markStepInvalidEvent = createEvent<number>();
 export const markStepValidEvent = createEvent<number>();
 
-export const $currentStep = createStore(0)
-  .on(changeCurrentStepEvent, (_, step) => step);
+export const $currentStep = createStore(0).on(changeCurrentStepEvent, (_, step) => step);
 
-// export const $validSteps = createStore<number[]>([])
-//   .on(markStepInvalidEvent, (validSteps, step) => validSteps.filter(validStep => validStep !== step))
-//   .on(markStepValidEvent, (validSteps, step) => [...validSteps, step]);
-
-export const $allowedSteps = createStore<number[]>([0])
-  .on(markStepValidEvent,(allowedSteps, step) => {
+export const $allowedSteps = createStore<number[]>([0]).on(
+  markStepValidEvent,
+  (allowedSteps, step) => {
     return Array.from(new Set([...allowedSteps, step + 1]));
-  });
+  },
+);
 
-export const useCanGo = (step: number) => useStoreMap($allowedSteps, (state) => state.includes(step));
+export const useCanGo = (step: number) =>
+  useStoreMap($allowedSteps, (state) => state.includes(step));
 
 export const useCreateTrackPagesValidation = () => {
   const [currentStep, allowedSteps] = useUnit([$currentStep, $allowedSteps]);
@@ -32,7 +28,8 @@ export const useCreateTrackPagesValidation = () => {
   const router = useRouter();
   const { errors, touched } = useFormikContext<CreateTrackFormikType>();
 
-  const checkField = (field: keyof CreateTrackFormikType): boolean => Boolean(!errors[field] && touched[field]);
+  const checkField = (field: keyof CreateTrackFormikType): boolean =>
+    Boolean(!errors[field] && touched[field]);
 
   useEffect(() => {
     pagesFieldsMap.forEach((pageFields, index) => {
@@ -44,12 +41,15 @@ export const useCreateTrackPagesValidation = () => {
     });
   }, [errors, touched]);
 
-  useEffect(function redirectFromInvalidStep() {
-    if (!route) return;
-    const stepByRoute = stepsConfig.findIndex((item) =>  item.link.includes(route));
+  useEffect(
+    function redirectFromInvalidStep() {
+      if (!route) return;
+      const stepByRoute = stepsConfig.findIndex((item) => item.link.includes(route));
 
-    if (allowedSteps.includes(stepByRoute)) return;
+      if (allowedSteps.includes(stepByRoute)) return;
 
-    router.replace(stepsConfig[currentStep].link);
-  }, [route, currentStep, allowedSteps.length]);
+      router.replace(stepsConfig[currentStep].link);
+    },
+    [route, currentStep, allowedSteps.length],
+  );
 };

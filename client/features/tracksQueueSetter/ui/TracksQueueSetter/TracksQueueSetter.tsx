@@ -1,9 +1,9 @@
 'use client';
 
-import React, { FC, useEffect } from 'react';
-import { Track } from '../../../../entities/track';
 import { useUnit } from 'effector-react';
-import { tracksQueueSetQueueEvent } from '../../../../entities/player';
+import React, { FC, useEffect } from 'react';
+import { tracksQueueSetQueueEvent } from '@entities/player';
+import { Track } from '@entities/track';
 
 type PropsType = {
   tracks: Track[]

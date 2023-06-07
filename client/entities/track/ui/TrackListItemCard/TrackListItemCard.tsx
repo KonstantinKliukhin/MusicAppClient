@@ -1,9 +1,9 @@
-import React, { FC, ReactNode } from 'react';
-import styles from './TrackListItemCard.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ROUTES } from '../../../../../routes';
+import React, { FC, ReactNode } from 'react';
+import { ROUTES } from '@shared/config/routes';
 import { Track } from '../../model';
+import styles from './TrackListItemCard.module.scss';
 
 interface ITrackItemProps {
   track: Track;

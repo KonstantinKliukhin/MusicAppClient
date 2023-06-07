@@ -1,10 +1,10 @@
 import React, { FC, PropsWithChildren } from 'react';
-import Layout from '../../../../shared/ui/layout/Layout';
-import { Header, NavLink } from '../../../../shared/ui';
-import { ROUTES } from '../../../../../routes';
-import { StaticBottomPlayer } from '../../../../widgets/player';
-import { ThemePicker } from '../../../../features/toggleTheme';
+import { ROUTES } from '@shared/config/routes';
 import { SignInButton, SignUpButton } from '../../../../features/auth';
+import { ThemePicker } from '../../../../features/toggleTheme';
+import { Header, NavLink } from '../../../../shared/ui';
+import Layout from '@shared/ui/layout/Layout/Layout';
+import { StaticBottomPlayer } from '../../../../widgets/player';
 
 
 export const BaseLayout: FC<PropsWithChildren> = (props) => {

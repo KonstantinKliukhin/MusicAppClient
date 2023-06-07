@@ -1,11 +1,11 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
-import { useCallback, useMemo } from 'react';
 import { signIn } from 'next-auth/react';
+import { useCallback, useMemo } from 'react';
 import * as Yup from 'yup';
 import YupPassword from 'yup-password';
+import { ROUTES } from '@shared/config/routes';
 import { signUp, SignUpCredentialsType } from '../../../../entities/auth';
-import { ROUTES } from '../../../../../routes';
 
 YupPassword(Yup);
 

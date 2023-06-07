@@ -1,10 +1,10 @@
 'use client';
 
-import React, { FC } from 'react';
 import { Delete } from '@mui/icons-material';
-import IconButton from '../../../../shared/ui/buttons/IconButton';
-import { Track, tracksDeleteOneEffect } from '../../../../entities/track';
 import { useUnit } from 'effector-react';
+import React, { FC } from 'react';
+import { Track, tracksDeleteOneEffect } from '../../../../entities/track';
+import IconButton from '@shared/ui/buttons/IconButton/IconButton';
 
 type PropsType = {
   id: Track['id'];

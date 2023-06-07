@@ -1,11 +1,11 @@
 'use client';
 
-import React, { FC, MouseEventHandler, useEffect, useMemo, useRef, useState } from 'react';
 import { LightMode } from '@mui/icons-material';
-import styles from './ThemePicker.module.scss';
-import { THEME_TYPE } from '../../../../shared/types/Theme';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import React, { FC, MouseEventHandler, useEffect, useMemo, useRef, useState } from 'react';
+import { THEME_TYPE } from '../../../../shared/config/Theme';
 import { LOCAL_STORAGE_KEY_THEME } from '../../../../shared/lib';
+import styles from './ThemePicker.module.scss';
 
 export const ThemePicker: FC = () => {
   const domRef = useRef<HTMLElement | null>(null);

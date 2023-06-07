@@ -1,15 +1,15 @@
 'use client';
-import styles from './NavLink.module.scss';
 import cs from 'classnames';
 import Link from 'next/link';
-import { FC, PropsWithChildren } from 'react';
 import { usePathname } from 'next/navigation';
+import { FC, PropsWithChildren } from 'react';
+import styles from './NavLink.module.scss';
 
 type PropsType = PropsWithChildren & {
   href: string;
 };
 
-const NavLink: FC<PropsType> = (props) => {
+export const NavLink: FC<PropsType> = (props) => {
   const pathname = usePathname();
 
   return (
@@ -18,5 +18,3 @@ const NavLink: FC<PropsType> = (props) => {
     </li>
   );
 };
-
-export default NavLink;
