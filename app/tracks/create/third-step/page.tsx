@@ -1,1 +1,1 @@
-export { CreateTrackThirdStepPage as default } from '../../../../client/pages/createTrackThirdStep';
+export { CreateTrackThirdStepPage as default } from '@app';

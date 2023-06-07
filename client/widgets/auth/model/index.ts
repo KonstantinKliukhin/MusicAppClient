@@ -1,0 +1,1 @@
+export { useAuthPagesMiddleware } from './authPagesMiddleware';

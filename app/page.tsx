@@ -1,4 +1,1 @@
-import { HomePage, homePageMetadata } from '@pages/home';
-
-export const metadata = homePageMetadata;
-export default HomePage;
+export { HomePage as default, homePageMetadata as metadata } from '@app';

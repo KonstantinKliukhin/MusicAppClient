@@ -1,4 +1,4 @@
-import { TrackComment } from '../../../trackComment';
+import { TrackComment } from '@entities/track';
 
 export class Track {
   constructor(

@@ -1,27 +1,29 @@
+'use client';
 import React, { FC } from 'react';
-import { ActiveTrackTextInfo, StaticBottomPlayerLayout } from '../../../../entities/player';
-import { AudioManager } from '../../../../features/audioManager';
-import { PlayNextTrackButton, PlayPrevTrackButton } from '../../../../features/changeActiveTrack';
-import { VolumeInput } from '../../../../features/setVolume';
-import { ToggleCurrentTrackButton } from '../../../../features/togglePlayer';
-import { ControlledTrackProgress } from '../../../../features/trackProgress';
+import { PlayNextTrackButton, PlayPrevTrackButton } from '@features/changeActiveTrack';
+import { ToggleCurrentTrackButton } from '@features/togglePlayer';
+import { ControlledTrackProgress } from '@features/trackProgress';
+import { VolumeInput } from '@features/volume';
+import { ActiveTrackTextInfo } from '@entities/track';
+import { StaticBottomPlayerLayout } from '@shared/ui';
+import { TRACK_AUTO_CHANGE } from '../../model';
 import styles from './StaticBottomPlayer.module.scss';
+
+const use = [TRACK_AUTO_CHANGE];
 
 export const StaticBottomPlayer: FC = () => {
   return (
-    <AudioManager>
-      <StaticBottomPlayerLayout
-        trackInfoSlot={<ActiveTrackTextInfo />}
-        trackActionsSlot={
-          <>
-            <PlayPrevTrackButton className={styles.manageTrackButton} />
-            <ToggleCurrentTrackButton className={styles.manageTrackButton} />
-            <PlayNextTrackButton className={styles.manageTrackButton} />
-          </>
-        }
-        rightSlot={<VolumeInput/>}
-        trackProgressSlot={<ControlledTrackProgress />}
-      />
-    </AudioManager>
+    <StaticBottomPlayerLayout
+      trackInfoSlot={<ActiveTrackTextInfo />}
+      trackActionsSlot={
+        <>
+          <PlayPrevTrackButton className={styles.manageTrackButton} />
+          <ToggleCurrentTrackButton className={styles.manageTrackButton} />
+          <PlayNextTrackButton className={styles.manageTrackButton} />
+        </>
+      }
+      rightSlot={<VolumeInput />}
+      trackProgressSlot={<ControlledTrackProgress />}
+    />
   );
 };

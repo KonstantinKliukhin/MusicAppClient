@@ -1,9 +1,9 @@
 'use client';
 import Link from 'next/link';
 import React, { FC } from 'react';
+import { useIsAuthenticated } from '@entities/auth';
 import { ROUTES } from '@shared/config/routes';
-import { useIsAuthenticated } from '../../../../../entities/auth';
-import { PinkButton } from '../../../../../shared/ui';
+import { PinkButton } from '@shared/ui';
 
 export const SignUpButton: FC = () => {
   const isAuthenticated = useIsAuthenticated();

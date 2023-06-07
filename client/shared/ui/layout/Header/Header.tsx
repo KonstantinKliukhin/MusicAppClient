@@ -1,6 +1,6 @@
-import Logo from '@images/logo/spotify.svg';
 import Image from 'next/image';
 import { FC, ReactNode } from 'react';
+import Logo from '@images/logo/spotify.svg';
 import styles from './Header.module.scss';
 
 type PropsType = {

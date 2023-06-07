@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
+import { TrackCreationNavigationButton } from '@features/trackCreationNavigation';
 import { ROUTES } from '@shared/config/routes';
-import { TrackCreationNavigationButton } from '../../../../features/trackCreationNavigation';
-import { FormikTextAreaInput, FormikTextInput, WhiteRoundedCard } from '../../../../shared/ui';
-import EndListContainer from '@shared/ui/containers/EndListContainer/EndListContainer';
+import {
+  EndListContainer,
+  FormikTextAreaInput,
+  FormikTextInput,
+  WhiteRoundedCard,
+} from '@shared/ui';
 
 export const CreateTrackFirstStepPage: FC = () => {
   return (
@@ -19,7 +23,11 @@ export const CreateTrackFirstStepPage: FC = () => {
         <FormikTextAreaInput name={'text'} />
       </WhiteRoundedCard>
       <EndListContainer>
-        <TrackCreationNavigationButton step={1} type={'next'} link={ROUTES.CREATE_TRACK_SECOND_STEP}>
+        <TrackCreationNavigationButton
+          step={1}
+          type={'next'}
+          link={ROUTES.CREATE_TRACK_SECOND_STEP}
+        >
           Next
         </TrackCreationNavigationButton>
       </EndListContainer>

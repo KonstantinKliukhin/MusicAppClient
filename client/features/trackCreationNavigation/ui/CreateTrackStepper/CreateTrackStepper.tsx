@@ -2,7 +2,7 @@
 
 import { useUnit } from 'effector-react/compat';
 import React, { FC } from 'react';
-import { Stepper } from '../../../../shared/ui';
+import { Stepper } from '@shared/ui';
 import {
   $allowedSteps,
   $currentStep,

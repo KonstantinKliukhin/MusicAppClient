@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
+import { DeleteTrackButton } from '@features/deleteTrack';
+import { TogglePlayerButton } from '@features/togglePlayer';
+import { SmallTrackProgressView } from '@features/trackProgress';
+import { TracksList } from '@features/tracksList';
+import { TracksQueueSetter } from '@features/tracksQueue';
+import { getTracks } from '@entities/track';
 import { ROUTES } from '@shared/config/routes';
-import { getTracks } from '../../../../entities/track';
-import { DeleteTrackButton } from '../../../../features/deleteTrack';
-import { TogglePlayerButton } from '../../../../features/togglePlayer';
-import { SmallTrackProgressView } from '../../../../features/trackProgress';
-import { TracksQueueSetter } from '../../../../features/tracksQueueSetter';
-import { Container, GradientButton } from '../../../../shared/ui';
-import { TracksList } from '../../../../widgets/tracksList';
+import { Container, GradientButton } from '@shared/ui';
 import styles from './TracksPage.module.scss';
 
 export async function TracksPage() {

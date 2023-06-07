@@ -1,4 +1,4 @@
-import { TrackCommentDTOType } from '../../../trackComment';
+import { TrackCommentDTOType } from './TrackComment.dto';
 
 export type GetTrackDtoType = {
   id: number;

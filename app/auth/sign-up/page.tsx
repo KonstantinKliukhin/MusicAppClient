@@ -1,1 +1,1 @@
-export { SignUpPage as default } from '../../../client/app';
+export { SignUpPage as default } from '@app';

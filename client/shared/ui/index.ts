@@ -26,3 +26,5 @@ export { Step } from './navigation/Step/Step';
 
 export { Header } from './layout/Header/Header';
 export { Layout } from './layout/Layout/Layout';
+
+export { StaticBottomPlayerLayout } from './players/StaticBottomPlayerLayout/StaticBottomPlayerLayout';

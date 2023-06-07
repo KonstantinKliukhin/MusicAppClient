@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
+import { TrackCreationSubmitButton } from '@features/createTrack';
+import { TrackCreationNavigationButton } from '@features/trackCreationNavigation';
 import { ROUTES } from '@shared/config/routes';
-import { TrackCreationSubmitButton } from '../../../../features/createTrackForm/ui';
-import { TrackCreationNavigationButton } from '../../../../features/trackCreationNavigation';
-import { FormikAudioInput, WhiteRoundedCard } from '../../../../shared/ui';
-import EndListContainer from '@shared/ui/containers/EndListContainer/EndListContainer';
+import { FormikAudioInput, WhiteRoundedCard } from '@shared/ui';
+import { EndListContainer } from '@shared/ui';
 
 export const CreateTrackThirdStepPage: FC = () => {
   return (

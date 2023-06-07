@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import React, { FC, PropsWithChildren } from 'react';
-import { PinkButton } from '../../../../shared/ui';
+import { PinkButton } from '@shared/ui';
 import { changeCurrentStepEvent, useCanGo } from '../../model';
 
 type PropsType =

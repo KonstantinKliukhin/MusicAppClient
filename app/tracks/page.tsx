@@ -1,4 +1,1 @@
-import { TracksPage, tracksPageMetaData } from '@pages/tracks';
-
-export const metadata = tracksPageMetaData;
-export default TracksPage;
+export { TracksPage as default, tracksPageMetaData as metadata } from '@app';

@@ -1,1 +1,1 @@
-export {GreenPageLoader as default} from '../client/app'
+export { GreenPageLoader as default } from '@app';

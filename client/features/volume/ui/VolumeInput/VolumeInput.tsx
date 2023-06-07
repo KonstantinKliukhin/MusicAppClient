@@ -2,8 +2,8 @@
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import { useUnit } from 'effector-react';
 import React, { FC } from 'react';
-import { $volume, setVolumeActionEvent } from '../../../../entities/player';
-import { BlueRangeInput } from '../../../../shared/ui';
+import { BlueRangeInput } from '@shared/ui';
+import { $volume, setVolumeActionEvent } from '../../model';
 import styles from './VolumeInput.module.scss';
 
 export const VolumeInput: FC = () => {
@@ -12,7 +12,12 @@ export const VolumeInput: FC = () => {
   return (
     <div className={styles.root}>
       <VolumeUpIcon />
-      <BlueRangeInput left={volume} right={100} onChange={(e) => setVolume(Number(e.target.value))} />;
+      <BlueRangeInput
+        left={volume}
+        right={100}
+        onChange={(e) => setVolume(Number(e.target.value))}
+      />
+      ;
     </div>
-  )
+  );
 };

@@ -2,8 +2,8 @@
 
 import { useUnit } from 'effector-react';
 import React, { FC } from 'react';
-import { $currentTime, $duration, setCurrentTimeEvent } from '../../../../entities/player';
 import { getProgressInPercentages } from '../../lib';
+import { $currentTime, $duration, setCurrentTimeEvent } from '../../model';
 import styles from './ControlledTrackProgress.module.scss';
 
 export const ControlledTrackProgress: FC = () => {
@@ -16,7 +16,9 @@ export const ControlledTrackProgress: FC = () => {
   return (
     <div className={styles.root}>
       <input
-        style={{ backgroundSize: `calc(${getProgressInPercentages(duration, currentTime)}% + 4px) 100%` }}
+        style={{
+          backgroundSize: `calc(${getProgressInPercentages(duration, currentTime)}% + 4px) 100%`,
+        }}
         className={styles.rangeInput}
         min={0}
         max={duration}

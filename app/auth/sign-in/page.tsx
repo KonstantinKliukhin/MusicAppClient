@@ -1,1 +1,1 @@
-export { SignInPage as default } from '../../../client/app';
+export { SignInPage as default } from '@app';

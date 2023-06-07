@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { TrackCreationNavigationButton } from '@features/trackCreationNavigation';
-import EndListContainer from '@shared/ui/containers/EndListContainer/EndListContainer';
 import { ROUTES } from '@shared/config/routes';
-import { FormikImageInput, WhiteRoundedCard } from '../../../../shared/ui';
+import { EndListContainer, FormikImageInput, WhiteRoundedCard } from '@shared/ui';
 
 export const CreateTrackSecondStepPage: FC = () => {
   return (

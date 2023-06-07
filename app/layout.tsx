@@ -1,2 +1,2 @@
 import '../client/app/styles/main.scss';
-export { AppRoot as default } from '../client/app';
+export { AppRoot as default } from '@app';

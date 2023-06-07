@@ -3,8 +3,8 @@
 import { Delete } from '@mui/icons-material';
 import { useUnit } from 'effector-react';
 import React, { FC } from 'react';
-import { Track, tracksDeleteOneEffect } from '../../../../entities/track';
-import IconButton from '@shared/ui/buttons/IconButton/IconButton';
+import { Track, tracksDeleteOneEffect } from '@entities/track';
+import { IconButton } from '@shared/ui';
 
 type PropsType = {
   id: Track['id'];

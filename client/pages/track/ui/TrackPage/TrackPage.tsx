@@ -1,7 +1,7 @@
-import { BigTrackInfo, getOneTrack } from '../../../../entities/track';
-import { TogglePlayerButton } from '../../../../features/togglePlayer';
-import { SmallTrackProgressView } from '../../../../features/trackProgress';
-import { Container, WhiteRoundedCard } from '../../../../shared/ui';
+import { TogglePlayerButton } from '@features/togglePlayer';
+import { SmallTrackProgressView } from '@features/trackProgress';
+import { BigTrackInfo, getOneTrack } from '@entities/track';
+import { Container, WhiteRoundedCard } from '@shared/ui';
 import styles from './TrackPage.module.scss';
 
 type PageParamsType = {

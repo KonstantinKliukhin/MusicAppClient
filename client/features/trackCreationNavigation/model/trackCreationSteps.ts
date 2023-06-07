@@ -4,7 +4,7 @@ import { useUnit, useStoreMap } from 'effector-react';
 import { useFormikContext } from 'formik';
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
 import { useEffect } from 'react';
-import { CreateTrackFormikType } from '../../createTrackForm/model';
+import { CreateTrackFormikType } from '@features/createTrack';
 import { pagesFieldsMap, stepsConfig } from './constants';
 
 export const changeCurrentStepEvent = createEvent<number>();

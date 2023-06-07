@@ -1,1 +1,1 @@
-export { CreateTrackSecondStepPage as default } from '../../../../client/pages/createTrackSecondStep';
+export { CreateTrackSecondStepPage as default } from '@app';

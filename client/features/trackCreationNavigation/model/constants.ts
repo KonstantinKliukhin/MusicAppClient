@@ -1,5 +1,5 @@
+import { CreateTrackFormikType } from '@features/createTrack/model';
 import { ROUTES } from '@shared/config/routes';
-import { CreateTrackFormikType } from '../../createTrackForm/model';
 
 export const pagesFieldsMap: (keyof CreateTrackFormikType)[][] = [
   ['name', 'artist'],
@@ -7,7 +7,7 @@ export const pagesFieldsMap: (keyof CreateTrackFormikType)[][] = [
   ['audio'],
 ];
 
-export const stepsConfig: {link: string; linkText: string | number;}[] = [
+export const stepsConfig: { link: string; linkText: string | number }[] = [
   {
     link: ROUTES.CREATE_TRACK_FIRST_STEP,
     linkText: 1,
@@ -20,4 +20,4 @@ export const stepsConfig: {link: string; linkText: string | number;}[] = [
     link: ROUTES.CREATE_TRACK_THIRD_STEP,
     linkText: 3,
   },
-]
+];
