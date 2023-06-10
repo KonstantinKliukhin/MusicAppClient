@@ -6,7 +6,7 @@ const revalidateServerRoutePath = async (path: string, wait: boolean) => {
 
 export async function enhancedFetch(
   input: RequestInfo | URL,
-  init?: RequestInit & { revalidate?: string[], waitRevalidate?: boolean },
+  init?: RequestInit & { revalidate?: string[]; waitRevalidate?: boolean },
 ) {
   const res = await fetch(input, init);
 
@@ -15,7 +15,8 @@ export async function enhancedFetch(
     if (!waitRevalidate) {
       init.revalidate.forEach((path) => revalidateServerRoutePath(path, false));
     } else {
-     await Promise.all(init.revalidate.map(path => revalidateServerRoutePath(path, true)))
+      console.log(init.revalidate);
+      await Promise.all(init.revalidate.map((path) => revalidateServerRoutePath(path, true)));
     }
   }
 

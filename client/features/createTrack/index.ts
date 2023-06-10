@@ -1,2 +1,6 @@
-export { TrackCreationForm, TrackCreationSubmitButton } from './ui';
-export type { CreateTrackFormikType } from './model';
+export {
+  TrackCreationForm,
+  TrackCreationSubmitButton,
+  TrackCreationNavigationButton,
+  CreateTrackStepper,
+} from './ui';

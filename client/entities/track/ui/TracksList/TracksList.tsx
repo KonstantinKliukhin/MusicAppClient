@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { Track, TrackListItemCard } from '../../../../entities/track';
+import { Track, TrackListItemCard } from '@entities/track';
 import styles from './TracksList.module.scss';
 
 type PropsType = {
@@ -7,7 +7,7 @@ type PropsType = {
   cardLeftSlot?: (track: Track) => ReactNode;
   cardPrevImageSlot?: (track: Track) => ReactNode;
   cardRightSlot?: (track: Track) => ReactNode;
-}
+};
 
 export const TracksList: FC<PropsType> = (props) => {
   return (

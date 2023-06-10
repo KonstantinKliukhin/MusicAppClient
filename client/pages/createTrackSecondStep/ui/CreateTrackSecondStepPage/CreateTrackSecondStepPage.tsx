@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TrackCreationNavigationButton } from '@features/trackCreationNavigation';
+import { TrackCreationNavigationButton } from '@features/createTrack';
 import { ROUTES } from '@shared/config/routes';
 import { EndListContainer, FormikImageInput, WhiteRoundedCard } from '@shared/ui';
 

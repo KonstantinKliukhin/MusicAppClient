@@ -1,6 +1,6 @@
 'use client';
 
-import { combine, createEvent, createStore, sample } from 'effector/compat';
+import { combine, createEvent, createStore } from 'effector/compat';
 import { useStoreMap } from 'effector-react';
 import { findById } from '@shared/lib';
 import { Track } from './types/Track';

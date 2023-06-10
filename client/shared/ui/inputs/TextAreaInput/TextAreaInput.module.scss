@@ -19,5 +19,6 @@
 
   .error {
     @apply text-sm text-red-600;
+    @apply dark:text-red-300;
   }
 }

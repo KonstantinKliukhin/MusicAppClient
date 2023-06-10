@@ -1,3 +1,3 @@
 type ID = string | number;
 
-type URL = string;
+type Url = string;

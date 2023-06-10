@@ -15,10 +15,12 @@ export const CreateTrackStepper: FC = () => {
   const [currentStep, allowedSteps] = useUnit([$currentStep, $allowedSteps]);
   useCreateTrackPagesValidation();
 
-  return <Stepper
-    activeStep={currentStep}
-    allowedSteps={allowedSteps}
-    steps={stepsConfig}
-    onChange={(i) => changeCurrentStepEvent(i)}
-  />;
+  return (
+    <Stepper
+      activeStep={currentStep}
+      allowedSteps={allowedSteps}
+      steps={stepsConfig}
+      onChange={(i) => changeCurrentStepEvent(i)}
+    />
+  );
 };

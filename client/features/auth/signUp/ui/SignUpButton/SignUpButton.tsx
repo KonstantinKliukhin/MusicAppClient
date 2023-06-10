@@ -1,18 +1,19 @@
 'use client';
 import Link from 'next/link';
 import React, { FC } from 'react';
-import { useIsAuthenticated } from '@entities/auth';
+import { useIsUnauthenticated } from '@entities/auth';
 import { ROUTES } from '@shared/config/routes';
 import { PinkButton } from '@shared/ui';
 
 export const SignUpButton: FC = () => {
-  const isAuthenticated = useIsAuthenticated();
+  const isUnauthenticated = useIsUnauthenticated();
 
-  if (isAuthenticated) return null;
+  if (isUnauthenticated)
+    return (
+      <Link href={ROUTES.SIGN_UP}>
+        <PinkButton>Sign up</PinkButton>
+      </Link>
+    );
 
-  return (
-    <Link href={ROUTES.SIGN_UP}>
-      <PinkButton>Sign up</PinkButton>
-    </Link>
-  );
+  return null;
 };

@@ -1,5 +1,5 @@
 export { getOneTrack, getTracks } from './api';
-export { TrackListItemCard, BigTrackInfo, ActiveTrackTextInfo } from './ui';
+export { TrackListItemCard, BigTrackInfo, ActiveTrackTextInfo, TracksList } from './ui';
 export {
   Track,
   $trackList,

@@ -1,19 +1,15 @@
 'use client';
 import { signIn } from 'next-auth/react';
 import React, { FC } from 'react';
-import { useIsAuthenticated } from '@entities/auth';
+import { useIsUnauthenticated } from '@entities/auth';
 import { PinkButton } from '@shared/ui';
 
 export const SignInButton: FC = () => {
-  const isAuthenticated = useIsAuthenticated();
+  const isUnauthenticated = useIsUnauthenticated();
 
-  if (isAuthenticated) return null;
+  if (isUnauthenticated) return <PinkButton onClick={() => signIn()}>Sign In</PinkButton>;
 
-  return (
-    <PinkButton onClick={() => signIn()}>
-      Sign In
-    </PinkButton>
-  );
+  return null;
 };
 
 export default SignInButton;

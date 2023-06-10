@@ -1,1 +1,1 @@
-export { TRACK_AUTO_CHANGE } from '../model/autoChangeTrack';
+export { useTrackAutoChange } from '../model/autoChangeTrack';

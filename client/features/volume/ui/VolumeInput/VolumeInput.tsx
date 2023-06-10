@@ -17,7 +17,6 @@ export const VolumeInput: FC = () => {
         right={100}
         onChange={(e) => setVolume(Number(e.target.value))}
       />
-      ;
     </div>
   );
 };

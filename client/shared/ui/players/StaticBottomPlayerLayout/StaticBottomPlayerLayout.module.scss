@@ -1,5 +1,6 @@
 .root {
   @apply fixed h-24 bottom-0 flex justify-center w-screen;
+  animation: floatTop ease 0.6s;
 
   .player {
     @apply relative w-full flex items-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500;
@@ -21,5 +22,15 @@
         @apply self-center;
       }
     }
+  }
+}
+
+@keyframes floatTop {
+  from {
+    transform: translateY(100%);
+  }
+
+  to {
+    transform: translateY(0);
   }
 }
