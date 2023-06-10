@@ -3,10 +3,13 @@ import { AudioManager } from '@widgets/audioManager';
 import { StaticBottomPlayer } from '@widgets/player';
 import { SignInButton, SignUpButton } from '@features/auth';
 import { ThemePicker } from '@features/toggleTheme';
+import { getCurrentUser, UserAvatar } from '@entities/user';
 import { ROUTES } from '@shared/config/routes';
 import { Header, Layout, NavLink } from '@shared/ui';
 
-export const BaseLayout: FC<PropsWithChildren> = (props) => {
+export const BaseLayout = async (props: PropsWithChildren) => {
+  const user = await getCurrentUser();
+
   return (
     <Layout
       headerSlot={
@@ -21,6 +24,7 @@ export const BaseLayout: FC<PropsWithChildren> = (props) => {
             <>
               <SignUpButton />
               <SignInButton />
+              <UserAvatar user={user} />
               <ThemePicker />
             </>
           }

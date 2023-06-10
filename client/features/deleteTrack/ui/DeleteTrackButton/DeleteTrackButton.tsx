@@ -1,17 +1,17 @@
 'use client';
 
 import { Delete } from '@mui/icons-material';
-import { useUnit } from 'effector-react';
 import React, { FC } from 'react';
-import { Track, tracksDeleteOneEffect } from '@entities/track';
+import { Track } from '@entities/track';
 import { IconButton } from '@shared/ui';
+import { useDeleteTrack } from '../../model';
 
 type PropsType = {
   id: Track['id'];
 };
 
 export const DeleteTrackButton: FC<PropsType> = (props) => {
-  const onDelete = useUnit(tracksDeleteOneEffect);
+  const onDelete = useDeleteTrack();
 
   return (
     <IconButton onClick={() => onDelete(props.id)}>

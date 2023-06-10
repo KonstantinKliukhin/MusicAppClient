@@ -35,8 +35,6 @@ export const useTrackCreationForm = () => {
 
       setSubmitting(false);
 
-      console.log('push');
-
       router.push(`${ROUTES.TRACKS_LIST}/${newTrack.id}`);
     },
     [router],

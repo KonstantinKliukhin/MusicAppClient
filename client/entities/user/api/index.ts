@@ -1,1 +1,2 @@
-export type { UserResponseDtoType } from './types/userResponse.dto';
+export type { GetCurrentUserDtoType } from './types/getCurrentUser.dto';
+export { getCurrentUser } from './getCurrentUser';

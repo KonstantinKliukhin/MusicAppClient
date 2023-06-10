@@ -1,1 +1,1 @@
-export {} from './jsonToUser'
+export { jsonToUser } from './jsonToUser';
