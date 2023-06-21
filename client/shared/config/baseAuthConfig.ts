@@ -11,7 +11,7 @@ export function setupAuthConfig(
         name: 'Credentials',
         credentials: {
           email: {
-            label: 'Username',
+            label: 'Email',
             type: 'text',
             placeholder: 'jsmith',
           },

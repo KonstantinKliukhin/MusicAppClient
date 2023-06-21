@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
-import { DeleteTrackButton } from '@features/deleteTrack';
-import { TogglePlayerButton } from '@features/togglePlayer';
-import { SmallTrackProgressView } from '@features/trackProgress';
+import { TogglePlayerButton } from '@features/player/togglePlayer';
+import { SmallTrackProgressView } from '@features/player/trackProgress';
+import { DeleteTrackButton } from '@features/track/deleteTrack';
 import { getTracks, TracksList, tracksQueueSetQueueEvent } from '@entities/track';
 import { ROUTES } from '@shared/config/routes';
 import { EffectorSetter } from '@shared/lib';

@@ -1,5 +1,5 @@
-import { CreateTrackFormikType } from '@features/createTrack/model/index';
 import { ROUTES } from '@shared/config/routes';
+import { CreateTrackFormikType } from '../model/index';
 
 export const pagesFieldsMap: (keyof CreateTrackFormikType)[][] = [
   ['name', 'artist'],

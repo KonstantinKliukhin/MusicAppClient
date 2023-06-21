@@ -7,10 +7,10 @@ export class Track {
     public artist: string,
     public text: string,
     public listens: number,
-    public picture: string,
-    public audio: string,
+    public picture: Url,
+    public audio: Url,
     public comments: TrackComment[],
-    public createdAt: string,
-    public updatedAt: string,
+    public createdAt: StringDate,
+    public updatedAt: StringDate,
   ) {}
 }

@@ -5,17 +5,6 @@
     "prettier"
   ],
   "rules": {
-    "import/no-internal-modules": 1,
-    "no-restricted-imports": [
-      "warn",
-      {
-        "patterns": [
-          {
-            "group": ["../../*"],
-            "message": "Usage of relative parent imports is not allowed."
-          }
-        ]
-      }
-    ]
+    "import/no-internal-modules": 1
   }
 }

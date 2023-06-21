@@ -1,15 +1,13 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { AudioManager } from '@widgets/audioManager';
 import { StaticBottomPlayer } from '@widgets/player';
-import { SignInButton, SignUpButton } from '@features/auth';
+import { AuthComponentMiddleware, SignInButton, SignUpButton } from '@features/auth';
 import { ThemePicker } from '@features/toggleTheme';
-import { getCurrentUser, UserAvatar } from '@entities/user';
+import { UserAvatar } from '@entities/user';
 import { ROUTES } from '@shared/config/routes';
 import { Header, Layout, NavLink } from '@shared/ui';
 
-export const BaseLayout = async (props: PropsWithChildren) => {
-  const user = await getCurrentUser();
-
+export const BaseLayout = (props: PropsWithChildren) => {
   return (
     <Layout
       headerSlot={
@@ -24,7 +22,9 @@ export const BaseLayout = async (props: PropsWithChildren) => {
             <>
               <SignUpButton />
               <SignInButton />
-              <UserAvatar user={user} />
+              <AuthComponentMiddleware>
+                <UserAvatar />
+              </AuthComponentMiddleware>
               <ThemePicker />
             </>
           }

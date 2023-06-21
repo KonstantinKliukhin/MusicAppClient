@@ -12,7 +12,7 @@ export async function signIn(signInData: SignInCredentialsType) {
     },
   });
 
-  const data: AuthDtoType = await response.json();
+  const res: AuthDtoType = await response.json();
 
-  return jsonToSessionUser(data);
+  return jsonToSessionUser(res);
 }

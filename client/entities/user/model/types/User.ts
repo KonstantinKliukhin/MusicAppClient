@@ -1,9 +1,9 @@
 export class User {
   constructor(
-    public id: number,
+    public id: string,
     public email: string,
     public name: string,
-    public avatar: string | null,
+    public avatar: Url | null,
   ) {}
 
   get initials(): [string, string] {

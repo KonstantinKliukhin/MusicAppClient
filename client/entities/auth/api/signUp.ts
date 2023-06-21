@@ -8,11 +8,11 @@ export async function signUp(signUpData: SignUpCredentialsType) {
     body: JSON.stringify(signUpData),
     method: HTTP_METHODS_TYPE.POST,
     headers: {
-      "Content-Type": "application/json"
-    }
+      'Content-Type': 'application/json',
+    },
   });
 
-  const data: AuthDtoType = await response.json();
+  const res: AuthDtoType = await response.json();
 
-  return jsonToSessionUser(data);
+  return jsonToSessionUser(res);
 }

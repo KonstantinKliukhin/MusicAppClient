@@ -1,17 +1,21 @@
+'use client';
 import React, { FC } from 'react';
-import { Avatar } from '@shared/ui';
-import { User } from '../../model';
+import { useUser } from '../../model';
 
-type PropsType = {
-  user: User;
-};
+export const UserAvatar: FC = () => {
+  const user = useUser();
 
-export const UserAvatar: FC<PropsType> = (props) => {
-  const avatarProps = props.user.avatar ? props.user.avatar : props.user.initials;
+  if (!user) return null;
 
-  if (typeof avatarProps === 'string') {
-    return <Avatar avatar={avatarProps} />;
-  }
+  return null;
 
-  return <Avatar firstLetter={avatarProps[0]} secondLetter={avatarProps[1]} />;
+  // const avatarProps = user.avatar ? user.avatar : user.initials;
+  //
+  // if (typeof avatarProps === 'string') {
+  //   return <Avatar avatar={avatarProps} />;
+  // }
+  //
+  // console.log(user, user.initials, user.avatar);
+  //
+  // return <Avatar firstLetter={avatarProps[0]} secondLetter={avatarProps[1]} />;
 };

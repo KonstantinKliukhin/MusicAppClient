@@ -15,7 +15,6 @@ export async function enhancedFetch(
     if (!waitRevalidate) {
       init.revalidate.forEach((path) => revalidateServerRoutePath(path, false));
     } else {
-      console.log(init.revalidate);
       await Promise.all(init.revalidate.map((path) => revalidateServerRoutePath(path, true)));
     }
   }

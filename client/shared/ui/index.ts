@@ -29,4 +29,4 @@ export { Layout } from './layout/Layout/Layout';
 
 export { StaticBottomPlayerLayout } from './players/StaticBottomPlayerLayout/StaticBottomPlayerLayout';
 
-export { Avatar } from './features/Avatar/Avatar';
+export { Avatar } from '@shared/ui/avatar/Avatar/Avatar';

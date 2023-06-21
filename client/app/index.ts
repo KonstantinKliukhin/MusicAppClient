@@ -23,4 +23,4 @@ export { SignInPage } from '@pages/signIn';
 export { SignUpPage } from '@pages/signUp';
 
 // auth
-export { authConfig } from '@entities/auth';
+export { authConfig } from './authConfig';

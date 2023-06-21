@@ -1,5 +1,5 @@
-import { TogglePlayerButton } from '@features/togglePlayer';
-import { SmallTrackProgressView } from '@features/trackProgress';
+import { TogglePlayerButton } from '@features/player/togglePlayer';
+import { SmallTrackProgressView } from '@features/player/trackProgress';
 import { BigTrackInfo, getOneTrack } from '@entities/track';
 import { Container, WhiteRoundedCard } from '@shared/ui';
 import styles from './TrackPage.module.scss';
@@ -27,8 +27,6 @@ export async function TrackPage(props: PropsType): Promise<JSX.Element> {
 
         {track.text ? <WhiteRoundedCard>{track.text}</WhiteRoundedCard> : null}
       </WhiteRoundedCard>
-
-
     </Container>
   );
 }

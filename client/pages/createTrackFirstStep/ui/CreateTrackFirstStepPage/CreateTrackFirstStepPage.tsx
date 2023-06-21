@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TrackCreationNavigationButton } from '@features/createTrack';
+import { TrackCreationNavigationButton } from '@features/track/createTrack';
 import { ROUTES } from '@shared/config/routes';
 import {
   EndListContainer,

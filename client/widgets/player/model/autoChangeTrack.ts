@@ -7,7 +7,7 @@ import {
   playNextTrackEvent,
   playPrevTrackEvent,
 } from '@features/changeActiveTrack';
-import { trackEndedEvent } from '@features/trackProgress';
+import { trackEndedEvent } from '@features/player/trackProgress';
 import { $isActiveTrackInTracksQueue, setActiveTrackEvent } from '@entities/track';
 
 function trackAutoChange() {

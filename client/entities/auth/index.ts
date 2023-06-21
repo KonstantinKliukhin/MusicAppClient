@@ -1,4 +1,3 @@
-export { authConfig } from './model';
-export { signUp } from './api';
-export type { SignUpCredentialsType, SignInCredentialsType } from './model';
+export { signUp, signIn } from './api';
+export type { SignUpCredentialsType, SignInCredentialsType, SessionUser } from './model';
 export { useIsAuthenticated, useIsUnauthenticated, useIsSessionLoading } from './model';
