@@ -11,18 +11,26 @@ export function setupAuthConfig(
         name: 'Credentials',
         credentials: {
           email: {
-            label: 'Email',
             type: 'text',
-            placeholder: 'jsmith',
           },
           password: {
-            label: 'Password',
             type: 'password',
           },
         },
         authorize,
       }),
     ],
+
+    callbacks: {
+      jwt({ token, user }) {
+        return { ...token, ...user };
+      },
+      session({ session, token }) {
+        session.user = { ...token };
+
+        return session;
+      },
+    },
 
     session: {
       strategy: 'jwt',

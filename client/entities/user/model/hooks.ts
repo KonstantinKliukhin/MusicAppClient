@@ -1,10 +1,12 @@
 import { useSession } from 'next-auth/react';
+import { GetCurrentUserDtoType } from '../api';
+import { jsonToUser } from '../lib';
 import { User } from '../model';
 
-export const useUser = () => {
-  const user = useSession().data?.user;
+export const useUser = (): null | User => {
+  const user = useSession().data?.user as GetCurrentUserDtoType & Record<string, string>;
 
   if (!user) return null;
-  // @ts-ignore
-  return new User(user.id, user.email, user.name, user.avatar);
+
+  return jsonToUser(user);
 };

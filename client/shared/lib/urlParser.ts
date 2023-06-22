@@ -4,7 +4,7 @@ export class UrlParser {
   private readonly prefix: string;
 
   constructor(prefix: string) {
-    this.prefix = envConfig.NEXT_PUBLIC_API_PATH + '/';
+    this.prefix = prefix + '/';
   }
 
   getUrl(path: string): string {

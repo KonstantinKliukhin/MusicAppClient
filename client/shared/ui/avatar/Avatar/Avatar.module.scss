@@ -1,3 +1,15 @@
 .root {
-  @apply flex justify-center items-center rounded-full text-center bg-fuchsia-700 text-white w-3 h-3 aspect-square;
+  @apply flex justify-center items-center rounded-full text-center bg-fuchsia-700 text-white w-10 h-10 aspect-square;
+
+  &.sm {
+    @apply w-10 h-10;
+  }
+
+  &.md {
+    @apply w-16 h-16;
+  }
+
+  &.lg {
+    @apply w-24 h-24;
+  }
 }
