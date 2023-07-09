@@ -1,4 +1,4 @@
-import { enhancedFetch, HTTP_METHODS_TYPE } from '@shared/api';
+import { HTTP_METHODS_TYPE, protectedFetch } from '@shared/api';
 import { ROUTES } from '@shared/config';
 import { jsonToTrack } from '../lib';
 import { Track } from '../model';
@@ -10,7 +10,7 @@ export const createTrack = async (track: CreateTrackDtoType): Promise<Track> => 
 
   Object.entries(track).forEach(([field, value]) => formData.append(field, value));
 
-  const res = await enhancedFetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks`, {
+  const res = await protectedFetch(`${process.env.NEXT_PUBLIC_API_PATH}/tracks`, {
     method: HTTP_METHODS_TYPE.POST,
     body: formData,
     revalidate: [ROUTES.TRACKS_LIST],

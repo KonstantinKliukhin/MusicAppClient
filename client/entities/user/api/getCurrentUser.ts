@@ -1,4 +1,4 @@
-import { ServerErrorType } from '@shared/api';
+import { protectedFetch, ServerErrorType } from '@shared/api';
 import { envConfig } from '@shared/config';
 import { jsonToUser } from '../lib';
 import { User } from '../model';
@@ -6,7 +6,7 @@ import { GetCurrentUserDtoType } from './types/getCurrentUser.dto';
 
 export const getCurrentUser = async (): Promise<User | null> => {
   try {
-    const response = await fetch(`${envConfig.NEXT_PUBLIC_API_PATH}/user`);
+    const response = await protectedFetch(`${envConfig.NEXT_PUBLIC_API_PATH}/user`);
 
     const dto: GetCurrentUserDtoType | ServerErrorType = await response.json();
 

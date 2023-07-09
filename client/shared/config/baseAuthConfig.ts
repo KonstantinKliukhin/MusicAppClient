@@ -33,6 +33,7 @@ export function setupAuthConfig(
     },
 
     session: {
+      maxAge: 24 * 60 * 60,
       strategy: 'jwt',
     },
 

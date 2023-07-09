@@ -11,6 +11,6 @@ export const useAuthPagesMiddleware = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (isAuthenticated) router.push(ROUTES.TRACKS_LIST);
+    if (isAuthenticated) router.replace(ROUTES.TRACKS_LIST);
   }, []);
 };
